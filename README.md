@@ -1,24 +1,16 @@
-# README
+# LifeTrack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application keeps track of longterm progress towards life goals. It is based on the pomodoro technique, which involves short periods of focused work on a single task with regular breaks in between. The applicatioe allows a user to gain levels towards a particular goal. 
 
-Things you may want to cover:
+# Usage
 
-* Ruby version
+TODO
 
-* System dependencies
+# Contributing
 
-* Configuration
+Bug reports and pull requests are welcome at https://github.com/ecssiah/lifetrack
 
-* Database creation
+# License
 
-* Database initialization
+This work is licensed under the [MIT License](https://github.com/ecssiah/lifetrack/blob/master/LICENSE.txt)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
