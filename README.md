@@ -1,6 +1,6 @@
 # LifeTrack
 
-This application keeps track of longterm progress towards life goals. It is based on the pomodoro technique, which involves short periods of focused work on a single task with regular breaks in between. The application allows a user to gain levels towards a particular goal. 
+This application keeps track of longterm progress towards life goals using levels. It is based on the pomodoro technique, which involves short periods of focused work on a single task with regular breaks. 
 
 # Usage
 

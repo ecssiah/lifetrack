@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+yarn-error.log
 
 # Ignore uploaded files in development
 /storage/*
@@ -20,6 +21,3 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
-# Ignore mac-specific files
-.DS_Store

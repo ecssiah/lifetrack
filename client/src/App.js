@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import './App.css'
+import HeaderContainer from './containers/HeaderContainer'
+import SelectionContainer from './containers/SelectionContainer'
+import FocusContainer from './containers/FocusContainer'
+import SettingsContainer from './containers/SettingsContainer'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <Router>
+        <div>
+          <HeaderContainer />
+
+          <hr />
+
+          <Route exact path='/' component={SelectionContainer} />
+          <Route path='/' component={FocusContainer} />
+          <Route path='/settings' component={SettingsContainer} />
+        </div>
+      </Router>
+    )
   }
 }
 
-export default App;
+export default App
