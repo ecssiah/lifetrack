@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_232457) do
+ActiveRecord::Schema.define(version: 2018_08_28_161558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "focuses", force: :cascade do |t|
     t.string "name"
-    t.string "category"
     t.integer "level"
     t.float "experience"
     t.datetime "created_at", null: false
