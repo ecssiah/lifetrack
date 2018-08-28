@@ -1,4 +1,5 @@
 import React, { Component} from 'react'
+import FocusList from '../components/selection/FocusList'
 import { connect } from 'react-redux'
 import { fetchFocuses } from '../actions/selection-actions'
 
@@ -8,13 +9,9 @@ class SelectionContainer extends React.Component {
   }
 
   render() {
-    const focusMap = this.props.focuses.map(focus => {
-      return <p key={focus.id}>{focus.name}</p>
-    })
-
     return (
       <div>
-        {focusMap}
+        <FocusList focuses={this.props.focuses} />
       </div>
     )
   }
