@@ -1,23 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import { createStore, combineReducers } from 'redux'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import selectionReducer from './reducers/selection-reducer'
-import focusReducer from './reducers/focus-reducer'
-import settingsReducer from './reducers/settings-reducer'
+import App from './App'
+import rootReducer from './reducers/root-reducer' 
 
-const rootReducer = combineReducers({
-  selectionReducer: selectionReducer, 
-  focusReducer: focusReducer,
-  settingsReducer: settingsReducer
-})
+const store = createStore(
+  rootReducer, 
+  { 
+    selection: [],
+    focus: {
+      title: '',
+      time: 0,
+      goal: 10,
+      level: 0,
+    },
+    settings: {
+      workPeriod: 20,
+      breakPeriod: 2,
+      backgroundColor: '#8e7985',
+      progressColor: '#dc48ad',
+    }, 
+  }
+)
 
-const store = createStore(rootReducer)
-
-console.log(store.getState())
 
 ReactDOM.render(
   <Provider store={store}>
