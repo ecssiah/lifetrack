@@ -9,7 +9,7 @@ import SettingsContainer from './containers/SettingsContainer'
 
 class App extends Component {
   componentDidMount() {
-    fetchFocuses()
+    this.props.fetchFocuses()
   }
 
   render() {
