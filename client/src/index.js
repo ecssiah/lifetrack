@@ -10,6 +10,9 @@ import rootReducer from './reducers/root-reducer'
 const store = createStore(
   rootReducer, 
   { 
+    header: {
+      page: 'selection',
+    },
     selection: [],
     focus: {
       title: '',

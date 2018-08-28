@@ -5,7 +5,6 @@ import HeaderContainer from './containers/HeaderContainer'
 import SelectionContainer from './containers/SelectionContainer'
 import FocusContainer from './containers/FocusContainer'
 import SettingsContainer from './containers/SettingsContainer'
-import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
@@ -25,8 +24,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return state
-}
-
-export default connect(mapStateToProps)(App)
+export default App
