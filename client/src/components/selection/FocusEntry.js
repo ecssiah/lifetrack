@@ -2,9 +2,12 @@ import React from 'react';
 
 const FocusEntry = props => {
   return (
-    <span>
-      {props.focus.name}
-    </span>
+    <React.Fragment>
+      <span>
+        {props.focus.name}
+      </span>
+      <br/>
+    </React.Fragment>
   )
 }
 

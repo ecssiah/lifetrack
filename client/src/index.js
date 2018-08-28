@@ -2,14 +2,21 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
-import App from './App'
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/root-reducer' 
 import registerServiceWorker from './registerServiceWorker'
+import App from './App'
+
+const PAGES = {
+  SELECTION: 'selection',
+  FOCUS: 'focus',
+  SETTINGS: 'settings',
+}
 
 const initialState = { 
   header: {
-    page: 'selection',
+    current_page: PAGES.SELECTION,
+    previous_page: PAGES.SELECTION,
   },
   selection: [],
   focus: {

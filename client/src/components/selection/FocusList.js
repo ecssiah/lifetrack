@@ -7,12 +7,10 @@ const FocusList = props => {
   })
 
   return (
-    <div>
+    <React.Fragment>
       {focusMap}
-    </div>
+    </React.Fragment>
   )
 }
-
-
 
 export default FocusList
