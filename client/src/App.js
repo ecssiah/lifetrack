@@ -9,6 +9,10 @@ import SettingsContainer from './containers/SettingsContainer'
 
 class App extends Component {
 
+  componentDidMount() {
+    document.body.style.backgroundColor = '#8e7985'
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.onRouteChanged()

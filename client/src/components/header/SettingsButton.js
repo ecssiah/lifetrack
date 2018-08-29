@@ -1,12 +1,12 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Image } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 const SettingsButton = props => {
   return (
     <React.Fragment>
       <NavLink to='/settings'>
-        <Button>*</Button>
+        <Image src='/settings-button.png'/>
       </NavLink>
     </React.Fragment>
   )
