@@ -4,29 +4,34 @@ import HeaderTitle from '../components/header/HeaderTitle'
 import AddButton from '../components/header/AddButton'
 import BackButton from '../components/header/BackButton'
 import SettingsButton from '../components/header/SettingsButton'
+import { Grid, Row, Col } from 'react-bootstrap'
 import { PAGES } from '../index'
 
 class HeaderContainer extends React.Component {
   render() {
-    let leftButton, rightButton
+    let leftButton, rightButton, title
 
     if (this.props.current_page === PAGES.SELECTION) {
+      title = 'Focuses'
       leftButton = <AddButton />
       rightButton = <SettingsButton />
     } else if (this.props.current_page === PAGES.FOCUS) {
       leftButton = <BackButton />
       rightButton = <SettingsButton />
     } else if (this.props.current_page === PAGES.SETTINGS) {
+      title = 'Settings'
       leftButton = <BackButton />
       rightButton = <React.Fragment />
     }
 
     return (
-      <React.Fragment>
-        {leftButton}
-        <HeaderTitle name={"Focuses"} />
-        {rightButton}
-      </React.Fragment>
+      <Grid>
+        <Row>
+          <Col xs={1} md={1}>{leftButton}</Col>
+          <Col xs={10} md={10}><HeaderTitle name={title} /></Col>
+          <Col xs={1} md={1}>{rightButton}</Col>
+        </Row>
+      </Grid>
     )
   }
 }

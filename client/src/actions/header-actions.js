@@ -9,7 +9,7 @@ export function changeLocation(newLocation) {
     case '/':
       newPage = PAGES.SELECTION 
       break
-    case '/setttings':
+    case '/settings':
       newPage = PAGES.SETTINGS
       break
     default:

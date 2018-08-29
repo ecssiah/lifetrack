@@ -2,9 +2,7 @@ import React from 'react'
 
 const HeaderTitle = props => {
   return (
-    <React.Fragment>
-      {props.name}
-    </React.Fragment>
+    <h1 className="text-center">{props.name}</h1>
   )
 }
 
