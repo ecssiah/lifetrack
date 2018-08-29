@@ -7,7 +7,7 @@ import rootReducer from './reducers/root-reducer'
 import registerServiceWorker from './registerServiceWorker'
 import App from './App'
 
-const PAGES = {
+export const PAGES = {
   SELECTION: 'selection',
   FOCUS: 'focus',
   SETTINGS: 'settings',

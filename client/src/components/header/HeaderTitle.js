@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 const HeaderTitle = props => {
   return (
     <React.Fragment>
-      Header
+      {props.name}
     </React.Fragment>
   )
 }
