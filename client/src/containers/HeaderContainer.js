@@ -36,6 +36,5 @@ const mapStateToProps = state => ({
   previous_page: state.header.previous_page,
 })
 
-
 export default connect(mapStateToProps)(HeaderContainer)
 
