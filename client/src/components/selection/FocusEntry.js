@@ -1,16 +1,17 @@
 import React from 'react';
-import { ProgressBar } from 'react-bootstrap'
+import { Grid, Row, Col, ProgressBar } from 'react-bootstrap'
 
 const FocusEntry = props => {
   return (
-    <React.Fragment>
-      <span>
-        {props.focus.name}
-        {` Lvl: ${props.focus.level}`}
-        <ProgressBar now={props.focus.experience} />
-      </span>
-      <br/>
-    </React.Fragment>
+    <Grid>
+      <Row>
+        <Col md={3}> {props.focus.name}</Col>
+        <Col md={3}>{` Lvl: ${props.focus.level}`}</Col>
+        <Col md={3}> 
+          <ProgressBar now={props.focus.experience} bsClass='progress-bar' />
+        </Col>
+      </Row>
+    </Grid>
   )
 }
 
