@@ -5,9 +5,9 @@ import AddButton from '../../components/header/AddButton'
 import BackButton from '../../components/header/BackButton'
 import SettingsButton from '../../components/header/SettingsButton'
 import { Grid, Row, Col } from 'react-bootstrap'
-import styles from './styles.css'
+import './styles.css'
 
-class HeaderContainer extends React.Component {
+class HeaderContainer extends Component {
   render() {
     let leftButton, rightButton, title
 

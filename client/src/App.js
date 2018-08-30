@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { updateFocus } from './actions/focus-actions'
 import { changeLocation } from './actions/header-actions'
@@ -22,7 +22,7 @@ class App extends Component {
     this.props.changeLocation(path)
 
     if (path.includes('focuses')) {
-      const curFocusId = parseInt(path.split('/')[2])
+      const curFocusId = parseInt(path.split('/')[2], 10)
       const curFocus = this.props.selection.find(focus => {
         return focus.id === curFocusId
       })

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import { Grid, Row, Col, ProgressBar } from 'react-bootstrap'
-import styles from './styles.css'
+import './styles.css'
 
 const FocusEntry = props => {
   return (

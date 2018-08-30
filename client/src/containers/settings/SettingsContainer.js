@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 
-class SettingsContainer extends React.Component {
+class SettingsContainer extends Component {
   render() {
     return (
       <div>

@@ -3,7 +3,7 @@ import FocusList from '../../components/selection/FocusList'
 import { connect } from 'react-redux'
 import { fetchFocuses } from '../../actions/selection-actions'
 
-class SelectionContainer extends React.Component {
+class SelectionContainer extends Component {
   componentDidMount() {
     this.props.fetchFocuses()
   }
