@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const SettingsButton = props => {
   return (
     <NavLink to='/settings'>
-      <Image src='/settings-button.svg'/>
+      <Image className='align-icon' src='/settings-button.svg'/>
     </NavLink>
   )
 }
