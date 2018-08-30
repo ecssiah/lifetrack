@@ -8,29 +8,16 @@ import rootReducer from './reducers/root-reducer'
 import registerServiceWorker from './registerServiceWorker'
 import App from './App'
 
-export const PAGES = {
-  SELECTION: 'selection',
-  FOCUS: 'focus',
-  SETTINGS: 'settings',
-}
-
 const initialState = { 
   header: {
-    current_page: PAGES.SELECTION,
-    previous_page: PAGES.SELECTION,
+    current_page: '/',
+    previous_page: '/',
   },
   selection: [],
-  focus: {
-    title: '',
-    time: 0,
-    goal: 10,
-    level: 0,
-  },
+  focus: {},
   settings: {
     workPeriod: 20,
     breakPeriod: 2,
-    backgroundColor: '#8e7985',
-    progressColor: '#dc48ad',
   }, 
 }
 

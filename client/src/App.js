@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { updateFocus } from './actions/focus-actions'
 import { changeLocation } from './actions/header-actions'
 import HeaderContainer from './containers/header/HeaderContainer'
 import SelectionContainer from './containers/selection/SelectionContainer'
@@ -16,7 +17,18 @@ class App extends Component {
   }
 
   onRouteChanged() {
-    this.props.changeLocation(this.props.location.pathname)
+    const path = this.props.location.pathname
+
+    this.props.changeLocation(path)
+
+    if (path.includes('focuses')) {
+      const curFocusId = parseInt(path.split('/')[2])
+      const curFocus = this.props.selection.find(focus => {
+        return focus.id === curFocusId
+      })
+
+      this.props.updateFocus(curFocus)
+    }
   }
 
   render() {
@@ -32,8 +44,13 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  changeLocation: location => dispatch(changeLocation(location))
+const mapStateToProps = state => ({
+  selection: state.selection,
 })
 
-export default withRouter(connect(null, mapDispatchToProps)(App))
+const mapDispatchToProps = dispatch => ({
+  updateFocus: focus => dispatch(updateFocus(focus)),
+  changeLocation: location => dispatch(changeLocation(location)),
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

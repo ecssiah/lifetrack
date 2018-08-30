@@ -5,21 +5,21 @@ import AddButton from '../../components/header/AddButton'
 import BackButton from '../../components/header/BackButton'
 import SettingsButton from '../../components/header/SettingsButton'
 import { Grid, Row, Col } from 'react-bootstrap'
-import { PAGES } from '../../index'
 import styles from './styles.css'
 
 class HeaderContainer extends React.Component {
   render() {
     let leftButton, rightButton, title
 
-    if (this.props.current_page === PAGES.SELECTION) {
+    if (this.props.current_page === '/' ) {
       title = 'Focuses'
       leftButton = <AddButton />
       rightButton = <SettingsButton />
-    } else if (this.props.current_page === PAGES.FOCUS) {
+    } else if (this.props.current_page.includes('focuses')) {
+      title = this.props.focus.name
       leftButton = <BackButton />
       rightButton = <SettingsButton />
-    } else if (this.props.current_page === PAGES.SETTINGS) {
+    } else if (this.props.current_page === '/settings') {
       title = 'Settings'
       leftButton = <BackButton />
       rightButton = <React.Fragment />
@@ -40,6 +40,7 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  focus: state.focus,
   current_page: state.header.current_page,
   previous_page: state.header.previous_page,
 })
