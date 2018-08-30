@@ -1,17 +1,25 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import { Grid, Row, Col, ProgressBar } from 'react-bootstrap'
+import styles from './styles.css'
 
 const FocusEntry = props => {
   return (
-    <Grid>
-      <Row>
-        <Col xs={6} md={6}>{props.focus.name}</Col>
-        <Col xs={2} md={2}>{`Lvl: ${props.focus.level}`}</Col>
-        <Col xs={4} md={4}> 
-          <ProgressBar now={props.focus.experience} bsClass='progress-bar' />
-        </Col>
-      </Row>
-    </Grid>
+    <NavLink to='/test'>
+      <Grid>
+        <Row>
+          <Col xs={6} md={6}>
+            <span className='entry'>{props.focus.name}</span>
+          </Col>
+          <Col xs={2} md={2}>
+            <span className='entry'>{`Lvl: ${props.focus.level}`}</span>
+          </Col>
+          <Col xs={4} md={4}> 
+            <ProgressBar now={props.focus.experience} bsClass='progress-bar' />
+          </Col>
+        </Row>
+      </Grid>
+    </NavLink>
   )
 }
 
