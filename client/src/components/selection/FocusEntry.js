@@ -5,7 +5,7 @@ import styles from './styles.css'
 
 const FocusEntry = props => {
   return (
-    <NavLink to='/test'>
+    <NavLink to={`/focuses/${props.focus.id}`}>
       <Grid>
         <Row>
           <Col xs={6} md={6}>
