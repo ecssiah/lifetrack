@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
-import FocusList from '../components/selection/FocusList'
+import FocusList from '../../components/selection/FocusList'
 import { connect } from 'react-redux'
-import { fetchFocuses } from '../actions/selection-actions'
+import { fetchFocuses } from '../../actions/selection-actions'
 
 class SelectionContainer extends React.Component {
   componentDidMount() {

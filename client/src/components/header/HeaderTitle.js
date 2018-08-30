@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from './styles.css'
 
 const HeaderTitle = props => {
   return (
-    <h2 className="text-center">{props.name}</h2>
+    <h1 className="title text-center">{props.name}</h1>
   )
 }
 

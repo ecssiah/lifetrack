@@ -4,11 +4,9 @@ import { NavLink } from 'react-router-dom'
 
 const SettingsButton = props => {
   return (
-    <React.Fragment>
-      <NavLink to='/settings'>
-        <Image src='/settings-button.png'/>
-      </NavLink>
-    </React.Fragment>
+    <NavLink to='/settings'>
+      <Image src='/settings-button.png'/>
+    </NavLink>
   )
 }
 

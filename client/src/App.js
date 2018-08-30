@@ -2,16 +2,12 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { changeLocation } from './actions/header-actions'
-import HeaderContainer from './containers/HeaderContainer'
-import SelectionContainer from './containers/SelectionContainer'
-import FocusContainer from './containers/FocusContainer'
-import SettingsContainer from './containers/SettingsContainer'
+import HeaderContainer from './containers/header/HeaderContainer'
+import SelectionContainer from './containers/selection/SelectionContainer'
+import FocusContainer from './containers/focus/FocusContainer'
+import SettingsContainer from './containers/settings/SettingsContainer'
 
 class App extends Component {
-
-  componentDidMount() {
-    document.body.style.backgroundColor = '#8e7985'
-  }
 
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -27,7 +23,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <HeaderContainer />
-        <hr />
+        <br />
         <Route exact path='/' component={SelectionContainer} />
         <Route path='/focuses' component={FocusContainer} />
         <Route exact path='/settings' component={SettingsContainer} />

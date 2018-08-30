@@ -1,11 +1,12 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
-import HeaderTitle from '../components/header/HeaderTitle'
-import AddButton from '../components/header/AddButton'
-import BackButton from '../components/header/BackButton'
-import SettingsButton from '../components/header/SettingsButton'
+import HeaderTitle from '../../components/header/HeaderTitle'
+import AddButton from '../../components/header/AddButton'
+import BackButton from '../../components/header/BackButton'
+import SettingsButton from '../../components/header/SettingsButton'
 import { Grid, Row, Col } from 'react-bootstrap'
-import { PAGES } from '../index'
+import { PAGES } from '../../index'
+import styles from './styles.css'
 
 class HeaderContainer extends React.Component {
   render() {
@@ -25,13 +26,15 @@ class HeaderContainer extends React.Component {
     }
 
     return (
-      <Grid>
-        <Row>
-          <Col xs={1} md={1}>{leftButton}</Col>
-          <Col xs={10} md={10}><HeaderTitle name={title} /></Col>
-          <Col xs={1} md={1}>{rightButton}</Col>
-        </Row>
-      </Grid>
+      <div className="header">
+        <Grid>
+          <Row>
+            <Col xs={1} md={1}>{leftButton}</Col>
+            <Col xs={10} md={10}><HeaderTitle name={title} /></Col>
+            <Col xs={1} md={1}>{rightButton}</Col>
+          </Row>
+        </Grid>
+      </div>
     )
   }
 }
