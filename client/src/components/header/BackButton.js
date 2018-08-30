@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const BackButton = props => {
   return (
     <NavLink to='/'>
-      <Image src='/back-button.png'/>
+      <Image src='/back-button.svg'/>
     </NavLink>
   )
 }
