@@ -5,7 +5,9 @@ import { fetchFocuses } from '../../actions/selection-actions'
 
 class SelectionContainer extends Component {
   componentDidMount() {
-    this.props.fetchFocuses()
+    if (this.props.focuses.length === 0) {
+      this.props.fetchFocuses()
+    }
   }
 
   render() {

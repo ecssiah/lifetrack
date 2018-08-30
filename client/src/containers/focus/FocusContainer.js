@@ -1,16 +1,18 @@
 import React, { Component} from 'react'
-import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Focus from '../../components/focus/Focus'
 
 class FocusContainer extends Component {
   render() {
     return (
-      <div>
-        <Route path='/:focusId' component={Focus} />
-      </div>
+      <Focus focus={this.props.focus} />
     )
   }
 }
 
-export default FocusContainer
+const mapStateToProps = state => ({
+  focus: state.focus,
+})
+
+export default connect(mapStateToProps)(FocusContainer)
 
