@@ -5,7 +5,7 @@ import './styles.css'
 const Experience = props => (
   <ProgressBar 
     className='experience-progress' 
-    now={props.experience / 100} 
+    now={props.experience} 
   />
 )
 

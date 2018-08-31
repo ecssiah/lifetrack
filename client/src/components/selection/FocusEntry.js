@@ -15,7 +15,7 @@ const FocusEntry = props => {
             <span className='entry'>{`Lvl: ${props.focus.level}`}</span>
           </Col>
           <Col xs={4} md={4}> 
-            <ProgressBar now={props.focus.experience} bsClass='progress-bar' />
+            <ProgressBar now={props.focus.experience} />
           </Col>
         </Row>
       </Grid>
