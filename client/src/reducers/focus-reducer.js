@@ -5,8 +5,10 @@ function focusReducer(state = [], action) {
     case UPDATE_FOCUS:
       return {
         name: action.payload.name,
+        time: 0,
         level: action.payload.level,
         experience: action.payload.experience,
+        goal: action.payload.goal,
       }
     default:
       return state

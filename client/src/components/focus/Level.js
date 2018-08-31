@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Level = props => (
-  <React.Fragment>
-    {props.level}
-  </React.Fragment>
+  <div className='text-center'>
+    <h3 className='goal'>Level: {props.level}</h3>
+  </div>
 )
 
 export default Level

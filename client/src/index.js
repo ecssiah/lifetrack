@@ -16,8 +16,8 @@ const initialState = {
   selection: [],
   focus: {},
   settings: {
-    workPeriod: 20,
-    breakPeriod: 2,
+    workPeriod: (20 * 60),
+    breakPeriod: (2 * 60),
   }, 
 }
 

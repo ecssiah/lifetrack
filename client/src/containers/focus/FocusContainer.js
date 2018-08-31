@@ -10,11 +10,14 @@ class FocusContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        <Time time={0} />
+        <Time time={this.props.focus.time} />
         <StartButton />
-        <Goal goal={10} />
-        <Level level={2} />
-        <Experience experience={32.2} />
+        <Goal 
+          iterations={this.props.focus.iterations} 
+          goal={this.props.focus.goal} 
+        />
+        <Level level={this.props.focus.level} />
+        <Experience experience={this.props.focus.experience} />
       </React.Fragment>
     )
   }

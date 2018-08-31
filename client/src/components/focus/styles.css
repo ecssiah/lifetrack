@@ -1,0 +1,21 @@
+.time {
+  font-size: 7.6em;
+}
+
+.goal {
+  font-size: 2em;
+}
+
+.goal-progress {
+  height: 60px;
+  margin: 0 20% 0 20%;
+}
+
+.level {
+  font-size: 2em;
+}
+
+.experience-progress {
+  height: 60px;
+  margin: 0 20% 0 20%;
+}

@@ -2,9 +2,9 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 
 const StartButton = props => (
-  <React.Fragment>
-    <Button>Start</Button>
-  </React.Fragment>
+  <div className='text-center'>
+    <Button className='btn-lg'>Start</Button>
+  </div>
 )
 
 export default StartButton
