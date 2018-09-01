@@ -28,5 +28,4 @@ const mapDispatchToProps = dispatch => ({
   fetchSettings: () => dispatch(fetchSettings())
 })
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer)

@@ -28,5 +28,4 @@ const mapDispatchToProps = dispatch => ({
   fetchFocuses: () => dispatch(fetchFocuses())
 })
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(SelectionContainer)
