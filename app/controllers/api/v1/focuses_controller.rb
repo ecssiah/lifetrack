@@ -7,11 +7,6 @@ class FocusesController < ApplicationController
     render json: @focuses
   end
 
-  def show
-    @focus = Focus.find(params[:id])
-    render json: @focus
-  end
-
   def create
     @focus = Focus.new(focus_params)
 
