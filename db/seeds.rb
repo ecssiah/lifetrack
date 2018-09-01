@@ -1,3 +1,13 @@
+Setting.create(
+  name: "Work Period",
+  value: "20"
+)
+
+Setting.create(
+  name: "Break Period",
+  value: "2"
+)
+
 Focus.create(
   name: "LifeTrack Project",
   level: 3, experience: 78.2,
