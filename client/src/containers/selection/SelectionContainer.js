@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchFocuses } from '../../actions/selection-actions'
 
 class SelectionContainer extends Component {
+
   componentDidMount() {
     if (this.props.focuses.length === 0) {
       this.props.fetchFocuses()

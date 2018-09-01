@@ -15,10 +15,7 @@ const initialState = {
   },
   selection: [],
   focus: {},
-  settings: {
-    workPeriod: (20 * 60),
-    breakPeriod: (2 * 60),
-  }, 
+  settings: [], 
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
