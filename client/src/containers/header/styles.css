@@ -1,3 +1,8 @@
 .header {
   background-color: black;
 }
+
+.button-container {
+  width: 32px;
+  height: 32px;
+}

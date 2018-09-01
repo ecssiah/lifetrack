@@ -29,9 +29,13 @@ class HeaderContainer extends Component {
       <div className="header">
         <Grid>
           <Row>
-            <Col xs={1} md={1}>{leftButton}</Col>
+            <Col xs={1} md={1}>
+              <div className='button-container'>{leftButton}</div>
+            </Col>
             <Col xs={10} md={10}><HeaderTitle name={title} /></Col>
-            <Col xs={1} md={1}>{rightButton}</Col>
+            <Col xs={1} md={1}>
+              <div className='button-container'>{rightButton}</div>
+            </Col>
           </Row>
         </Grid>
       </div>
