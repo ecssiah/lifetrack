@@ -25,7 +25,8 @@ export function deleteFocus(id) {
       { method: 'DELETE' }
     )
       .then(resp => dispatch({
-        type: DELETED_FOCUS
+        type: DELETED_FOCUS,
+        payload: id
       }))
   }
 }
