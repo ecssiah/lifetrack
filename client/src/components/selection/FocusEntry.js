@@ -8,10 +8,6 @@ class FocusEntry extends Component {
     isHovering: false
   }
 
-  handleMouseHover = event => {
-    
-  }
-
   render() {
     return (
       <Grid>
@@ -36,6 +32,7 @@ class FocusEntry extends Component {
                 this.state.isHovering &&
                 <input 
                   type='image' src='delete-button.svg' alt='delete-button' 
+                  onClick={() => this.props.handleDeleteClick(this.props.focus.id)}
                 />
               }
             </div>

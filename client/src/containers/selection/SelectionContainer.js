@@ -5,6 +5,10 @@ import { fetchFocuses } from '../../actions/selection-actions'
 
 class SelectionContainer extends Component {
 
+  handleDeleteClick(id) {
+    console.log(id)
+  }
+
   componentDidMount() {
     if (this.props.focuses.length === 0) {
       this.props.fetchFocuses()
@@ -14,7 +18,10 @@ class SelectionContainer extends Component {
   render() {
     return (
       <div>
-        <FocusList focuses={this.props.focuses} />
+        <FocusList 
+          focuses={this.props.focuses} 
+          handleDeleteClick={this.handleDeleteClick}
+        />
       </div>
     )
   }
