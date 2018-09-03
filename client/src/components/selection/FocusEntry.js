@@ -5,21 +5,24 @@ import './styles.css'
 
 const FocusEntry = props => {
   return (
-    <NavLink to={`/focuses/${props.focus.id}`}>
-      <Grid>
-        <Row>
+    <Grid>
+      <Row>
+        <NavLink to={`/focuses/${props.focus.id}`}>
           <Col xs={6} md={6}>
             <span className='entry'>{props.focus.name}</span>
           </Col>
           <Col xs={2} md={2}>
             <span className='entry'>{`Lvl: ${props.focus.level}`}</span>
           </Col>
-          <Col xs={4} md={4}> 
+          <Col xs={3} md={3}> 
             <ProgressBar now={props.focus.experience} />
           </Col>
-        </Row>
-      </Grid>
-    </NavLink>
+        </NavLink>
+        <Col xs={1} md={1}>
+          <input className='delete' type='image' src='delete-button.svg' />
+        </Col>
+      </Row>
+    </Grid>
   )
 }
 
