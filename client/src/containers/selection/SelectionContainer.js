@@ -50,7 +50,9 @@ class SelectionContainer extends Component {
           this.state.showDeleteConfirmation &&
           <div className='static-modal'>
             <Modal.Dialog>
-              <Modal.Body>Are you sure you want to delete this focus?</Modal.Body>
+              <Modal.Body>
+                <h4>Are you sure you want to delete this focus?</h4>
+              </Modal.Body>
 
               <Modal.Footer>
                 <Button onClick={this.handleDeleteCancel} >Cancel</Button>
