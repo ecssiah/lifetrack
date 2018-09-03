@@ -2,19 +2,35 @@ import React, { Component} from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import FocusList from '../../components/selection/FocusList'
 import { connect } from 'react-redux'
-import { fetchFocuses } from '../../actions/selection-actions'
+import { fetchFocuses, deleteFocus } from '../../actions/selection-actions'
 
 class SelectionContainer extends Component {
   state = {
+    selectedFocus: 0,
     showDeleteConfirmation: false
   }
 
   handleDeleteClick = id => {
-    this.setState({showDeleteConfirmation: true})
+    this.setState({
+      selectedFocus: id,
+      showDeleteConfirmation: true
+    })
+  }
+
+  handleDeleteConfirm = () => {
+    this.props.deleteFocus(this.state.selectedFocus)
+
+    this.setState({
+      selectedFocus: 0,
+      showDeleteConfirmation: false
+    })
   }
 
   handleDeleteCancel = () => {
-    this.setState({showDeleteConfirmation: false})
+    this.setState({
+      selectedFocus: 0,
+      showDeleteConfirmation: false
+    })
   }
 
   componentDidMount() {
@@ -34,15 +50,14 @@ class SelectionContainer extends Component {
           this.state.showDeleteConfirmation &&
           <div className='static-modal'>
             <Modal.Dialog>
-              <Modal.Header>
-                <Modal.Title>Delete Focus</Modal.Title>
-              </Modal.Header>
-
-              <Modal.Body>Delete details</Modal.Body>
+              <Modal.Body>Are you sure you want to delete this focus?</Modal.Body>
 
               <Modal.Footer>
                 <Button onClick={this.handleDeleteCancel} >Cancel</Button>
-                <Button bsStyle='primary'>Confirm</Button>
+                <Button 
+                  onClick={this.handleDeleteConfirm} 
+                  bsStyle='primary'>Confirm
+                </Button>
               </Modal.Footer>
             </Modal.Dialog>
           </div>
@@ -57,7 +72,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchFocuses: () => dispatch(fetchFocuses())
+  fetchFocuses: () => dispatch(fetchFocuses()),
+  deleteFocus: id => dispatch(deleteFocus(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectionContainer)
