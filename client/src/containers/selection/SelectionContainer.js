@@ -1,12 +1,20 @@
 import React, { Component} from 'react'
+import { Button, Modal } from 'react-bootstrap'
 import FocusList from '../../components/selection/FocusList'
 import { connect } from 'react-redux'
 import { fetchFocuses } from '../../actions/selection-actions'
 
 class SelectionContainer extends Component {
+  state = {
+    showDeleteConfirmation: false
+  }
 
-  handleDeleteClick(id) {
-    console.log(id)
+  handleDeleteClick = id => {
+    this.setState({showDeleteConfirmation: true})
+  }
+
+  handleDeleteCancel = () => {
+    this.setState({showDeleteConfirmation: false})
   }
 
   componentDidMount() {
@@ -17,12 +25,29 @@ class SelectionContainer extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <FocusList 
           focuses={this.props.focuses} 
           handleDeleteClick={this.handleDeleteClick}
         />
-      </div>
+        {
+          this.state.showDeleteConfirmation &&
+          <div className='static-modal'>
+            <Modal.Dialog>
+              <Modal.Header>
+                <Modal.Title>Delete Focus</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>Delete details</Modal.Body>
+
+              <Modal.Footer>
+                <Button onClick={this.handleDeleteCancel} >Cancel</Button>
+                <Button bsStyle='primary'>Confirm</Button>
+              </Modal.Footer>
+            </Modal.Dialog>
+          </div>
+        }
+      </React.Fragment>
     )
   }
 }
