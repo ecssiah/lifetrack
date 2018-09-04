@@ -56,7 +56,9 @@ class SelectionContainer extends Component {
                 <Button onClick={this.handleDeleteCancel} >Cancel</Button>
                 <Button 
                   onClick={this.handleDeleteConfirm} 
-                  bsStyle='primary'>Confirm
+                  bsStyle='primary'
+                >
+                  Confirm
                 </Button>
               </Modal.Footer>
             </Modal.Dialog>

@@ -1,15 +1,50 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
+import { Button, Modal } from 'react-bootstrap'
+import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 import HeaderTitle from '../../components/header/HeaderTitle'
 import AddButton from '../../components/header/AddButton'
 import HomeButton from '../../components/header/HomeButton'
 import SettingsButton from '../../components/header/SettingsButton'
+import { addFocus } from '../../actions/selection-actions'
 import { Grid, Row, Col } from 'react-bootstrap'
 import './styles.css'
 
 class HeaderContainer extends Component {
+
+  state = {
+    showAddDialog: false,
+    focusName: ''
+  }
+
   handleAddClick = () => {
-    console.log("HERE I AM!") 
+    this.setState({
+      ...this.state,
+      showAddDialog: true
+    }) 
+  }
+
+  handleAddConfirm = () => {
+    this.props.addFocus(this.state.focusName)
+
+    this.setState({
+      focusName: '',
+      showAddDialog: false
+    })
+  }
+
+  handleAddCancel = () => {
+    this.setState({
+      ...this.state,
+      showAddDialog: false
+    })
+  }
+
+  handleNameChange = e => {
+    this.setState({
+      ...this.state,
+      focusName: e.target.value
+    })
   }
 
   render() {
@@ -42,6 +77,39 @@ class HeaderContainer extends Component {
             </Col>
           </Row>
         </Grid>
+        {
+          this.state.showAddDialog &&
+          <div className='static-modal'>
+            <Modal.Dialog>
+              <Modal.Header>
+                <Modal.Title>Create New Focus</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                <form>
+                  <FormGroup>
+                    <ControlLabel>Name</ControlLabel>
+                    <FormControl
+                      type='text'
+                      value={this.state.focusName}
+                      onChange={this.handleNameChange}
+                    />
+                  </FormGroup>
+                </form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                <Button onClick={this.handleAddCancel} >Cancel</Button>
+                <Button 
+                  onClick={this.handleAddConfirm} 
+                  bsStyle='primary'
+                >
+                  Confirm
+                </Button>
+              </Modal.Footer>
+            </Modal.Dialog>
+          </div>
+        }
       </div>
     )
   }
@@ -53,5 +121,9 @@ const mapStateToProps = state => ({
   previous_page: state.header.previous_page,
 })
 
-export default connect(mapStateToProps)(HeaderContainer)
+const mapDispatchToProps = dispatch => ({
+  addFocus: focusName => dispatch(addFocus(focusName))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)
 

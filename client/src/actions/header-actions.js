@@ -6,3 +6,4 @@ export function changeLocation(newLocation) {
     payload: newLocation,
   }
 }
+
