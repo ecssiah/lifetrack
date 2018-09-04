@@ -1,13 +1,13 @@
 import React, { Component} from 'react'
 import SettingList from '../../components/settings/SettingList'
 import { connect } from 'react-redux'
-import { fetchSettings } from '../../actions/settings-actions'
+import { getSettings } from '../../actions/settings-actions'
 
 class SettingsContainer extends Component {
 
   componentDidMount() {
     if (this.props.settings.length === 0) {
-      this.props.fetchSettings()
+      this.props.getSettings()
     }
   }
 
@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchSettings: () => dispatch(fetchSettings())
+  getSettings: () => dispatch(getSettings())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer)

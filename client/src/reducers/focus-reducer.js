@@ -4,8 +4,8 @@ function focusReducer(state = [], action) {
   switch (action.type) {
     case UPDATE_FOCUS:
       return {
+        ...state,
         name: action.payload.name,
-        time: 0,
         level: action.payload.level,
         experience: action.payload.experience,
         goal: action.payload.goal,

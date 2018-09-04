@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import FocusList from '../../components/selection/FocusList'
 import { connect } from 'react-redux'
-import { fetchFocuses, deleteFocus } from '../../actions/selection-actions'
+import { getFocuses, deleteFocus } from '../../actions/selection-actions'
 
 class SelectionContainer extends Component {
   state = {
@@ -33,7 +33,7 @@ class SelectionContainer extends Component {
 
   componentDidMount() {
     if (this.props.focuses.length === 0) {
-      this.props.fetchFocuses()
+      this.props.getFocuses()
     }
   }
 
@@ -74,7 +74,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchFocuses: () => dispatch(fetchFocuses()),
+  getFocuses: () => dispatch(getFocuses()),
   deleteFocus: id => dispatch(deleteFocus(id))
 })
 

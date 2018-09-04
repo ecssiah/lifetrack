@@ -5,7 +5,7 @@ export const DELETED_FOCUS = 'selection:deleted_focus'
 export const ADDING_FOCUS = 'selection:adding_focus'
 export const ADDED_FOCUS = 'selection:added_focus'
 
-export function fetchFocuses() {
+export function getFocuses() {
   return dispatch => {
     dispatch({type: LOADING_FOCUSES})
 

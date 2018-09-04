@@ -1,7 +1,7 @@
 export const LOADING_SETTINGS = 'settings:loading_settings'
 export const LOADED_SETTINGS = 'settings:loaded_settings'
 
-export function fetchSettings() {
+export function getSettings() {
   return dispatch => {
     dispatch({type: LOADING_SETTINGS})
 
