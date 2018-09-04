@@ -7,21 +7,10 @@ import Level from '../../components/focus/Level'
 import Experience from '../../components/focus/Experience'
 
 class FocusContainer extends Component {
-  state = {
-    time: 0
-  }
-
-  componentDidMount() {
-    console.log(this.props.settings)
-    this.setState({
-      time: this.props.settings["Work Period"]
-    })
-  }
-
   render() {
     return (
       <React.Fragment>
-        <Time time={this.state.time} />
+        <Time time={this.props.focus.time} />
         <StartButton />
         <Goal 
           iterations={this.props.focus.iterations} 

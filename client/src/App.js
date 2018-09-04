@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { updateFocus } from './actions/focus-actions'
+import { setTime, updateFocus } from './actions/focus-actions'
 import { getFocuses } from './actions/selection-actions'
 import { getSettings } from './actions/settings-actions'
 import { changeLocation } from './actions/header-actions'
@@ -34,7 +34,12 @@ class App extends Component {
         return focus.id === curFocusId
       })
 
+      const workPeriodSetting = this.props.settings.find(setting => {
+        return setting.name === "Work Period"
+      }) 
+
       this.props.updateFocus(curFocus)
+      this.props.setTime(workPeriodSetting.value)
     }
   }
 
@@ -53,9 +58,11 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   selection: state.selection,
+  settings: state.settings,
 })
 
 const mapDispatchToProps = dispatch => ({
+  setTime: time => dispatch(setTime(time)),
   getFocuses: () => dispatch(getFocuses()),
   getSettings: () => dispatch(getSettings()),
   updateFocus: focus => dispatch(updateFocus(focus)),

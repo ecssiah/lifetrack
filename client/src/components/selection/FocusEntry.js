@@ -17,10 +17,12 @@ class FocusEntry extends Component {
         > 
           <NavLink to={`/focuses/${this.props.focus.id}`}>
             <Col xs={6} md={6}>
-              <span className='entry'>{this.props.focus.name}</span>
+              <span className='focus-entry'>{this.props.focus.name}</span>
             </Col>
             <Col xs={2} md={2}>
-              <span className='entry'>{`Lvl: ${this.props.focus.level}`}</span>
+              <span className='focus-entry'>
+                {`Lvl: ${this.props.focus.level}`}
+              </span>
             </Col>
             <Col xs={3} md={3}> 
               <ProgressBar now={this.props.focus.experience} />

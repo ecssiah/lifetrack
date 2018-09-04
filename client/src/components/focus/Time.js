@@ -2,7 +2,7 @@ import React from 'react'
 import './styles.css'
 
 const Time = props => {
-  const minutes = (~~props.time).toFixed(0)
+  const minutes = Math.floor(props.time).toFixed(0)
   const seconds = ((props.time - minutes) * 60).toFixed(0)
 
   const displayMinutes = minutes < 10 ? '0' + minutes : minutes

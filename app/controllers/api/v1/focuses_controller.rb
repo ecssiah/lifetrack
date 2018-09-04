@@ -3,7 +3,7 @@ module Api::V1
 class FocusesController < ApplicationController
 
   def index
-    @focuses = Focus.all
+    @focuses = Focus.all.order(:id)
     render json: @focuses
   end
 
