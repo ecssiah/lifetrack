@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { getFocuses, deleteFocus } from '../../actions/selection-actions'
 
 class SelectionContainer extends Component {
+
   state = {
     selectedFocus: 0,
     showDeleteConfirmation: false
