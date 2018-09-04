@@ -5,7 +5,8 @@ function selectionReducer(state = [], action) {
     case LOADED_FOCUSES:
       return action.payload
     case DELETED_FOCUS:
-      return state.filter(focus => focus.id === action.payload)
+      const newState = state.filter(focus => focus.id !== action.payload)
+      return newState
     default:
       return state
   }

@@ -21,14 +21,12 @@ class SelectionContainer extends Component {
     this.props.deleteFocus(this.state.selectedFocus)
 
     this.setState({
-      selectedFocus: 0,
       showDeleteConfirmation: false
     })
   }
 
   handleDeleteCancel = () => {
     this.setState({
-      selectedFocus: 0,
       showDeleteConfirmation: false
     })
   }
