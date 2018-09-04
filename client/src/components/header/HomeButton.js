@@ -2,22 +2,22 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Image } from 'react-bootstrap'
 
-class SettingsButton extends Component {
+class HomeButton extends Component {
   state = {
     isHovering: false
   }
 
-  handleOnClick = () => {
-    this.props.history.push('/settings')
+  handleClick = () => {
+    this.props.history.push('/') 
   }
 
   render() {
-    let imageSrc = '/settings-button'
+    let imageSrc = '/home-button'
     imageSrc += this.state.isHovering ? '-highlight.svg' : '.svg'
 
     return (
       <Image 
-        onClick={this.handleOnClick} 
+        onClick={this.handleClick} 
         onMouseEnter={() => this.setState({isHovering: true})}
         onMouseLeave={() => this.setState({isHovering: false})}
         className='align-icon' src={imageSrc} 
@@ -26,4 +26,4 @@ class SettingsButton extends Component {
   }
 }
 
-export default withRouter(SettingsButton)
+export default withRouter(HomeButton)

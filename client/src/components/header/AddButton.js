@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Image } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
 
-const AddButton = props => {
-  return (
-    <NavLink to='/'>
-      <Image className='align-icon' src='/add-button.svg' />
-    </NavLink>
-  )
+class AddButton extends Component {
+  state = {
+    isHovering: false
+  }
+
+  render() {
+    let imageSrc = '/add-button'
+    imageSrc += this.state.isHovering ? '-highlight.svg' : '.svg'
+
+    return (
+      <Image 
+        onClick={this.props.handleAddClick} 
+        onMouseEnter={() => this.setState({isHovering: true})}
+        onMouseLeave={() => this.setState({isHovering: false})}
+        className='align-icon' src={imageSrc} 
+      />
+    )
+  }
 }
 
 export default AddButton

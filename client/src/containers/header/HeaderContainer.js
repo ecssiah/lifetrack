@@ -2,26 +2,30 @@ import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import HeaderTitle from '../../components/header/HeaderTitle'
 import AddButton from '../../components/header/AddButton'
-import BackButton from '../../components/header/BackButton'
+import HomeButton from '../../components/header/HomeButton'
 import SettingsButton from '../../components/header/SettingsButton'
 import { Grid, Row, Col } from 'react-bootstrap'
 import './styles.css'
 
 class HeaderContainer extends Component {
+  handleAddClick = () => {
+    console.log("HERE I AM!") 
+  }
+
   render() {
     let leftButton, rightButton, title
 
     if (this.props.current_page === '/' ) {
       title = 'Focuses'
-      leftButton = <AddButton />
+      leftButton = <AddButton handleAddClick={this.handleAddClick} />
       rightButton = <SettingsButton />
     } else if (this.props.current_page.includes('focuses')) {
       title = this.props.focus.name
-      leftButton = <BackButton />
+      leftButton = <HomeButton />
       rightButton = <SettingsButton />
     } else if (this.props.current_page === '/settings') {
       title = 'Settings'
-      leftButton = <BackButton />
+      leftButton = <HomeButton />
       rightButton = <React.Fragment />
     }
 

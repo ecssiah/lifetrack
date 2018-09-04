@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gradient-0" gradientUnits="userSpaceOnUse" cx="250" cy="250" r="203.285">
+      <stop offset="0" style="stop-color: rgb(226, 226, 226);"/>
+      <stop offset="1" style="stop-color: rgb(183, 183, 183);"/>
+    </radialGradient>
+  </defs>
+  <path d="M 250 49.893 L 453.285 207.504 L 395.155 207.504 L 395.155 449.951 L 302.617 449.951 L 302.617 311.859 L 197.383 311.859 L 197.383 449.951 L 104.846 449.951 L 104.846 207.504 L 46.715 207.504 Z M 197.383 449.951 L 302.617 449.951 L 302.617 450.108 L 197.383 450.108 Z" style="fill: url(#gradient-0);"/>
+</svg>
