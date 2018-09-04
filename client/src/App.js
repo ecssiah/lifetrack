@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { updateFocus } from './actions/focus-actions'
+import { getFocuses } from './actions/selection-actions'
+import { getSettings } from './actions/settings-actions'
 import { changeLocation } from './actions/header-actions'
 import HeaderContainer from './containers/header/HeaderContainer'
 import SelectionContainer from './containers/selection/SelectionContainer'
@@ -9,6 +11,11 @@ import FocusContainer from './containers/focus/FocusContainer'
 import SettingsContainer from './containers/settings/SettingsContainer'
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getFocuses()
+    this.props.getSettings()
+  }
 
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -49,6 +56,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+  getFocuses: () => dispatch(getFocuses()),
+  getSettings: () => dispatch(getSettings()),
   updateFocus: focus => dispatch(updateFocus(focus)),
   changeLocation: location => dispatch(changeLocation(location)),
 })

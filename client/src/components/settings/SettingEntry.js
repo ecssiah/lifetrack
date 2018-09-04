@@ -7,10 +7,10 @@ const SettingEntry = props => {
     <Grid>
       <Row>
         <Col xs={8} md={8}>
-          <span className='entry'>{props.setting.name}</span>
+          <span className='entry'>{props.name}</span>
         </Col>
         <Col xs={4} md={4}>
-          <span className='entry'>{props.setting.value}</span>
+          <span className='entry'>{props.value}</span>
         </Col>
       </Row>
     </Grid>

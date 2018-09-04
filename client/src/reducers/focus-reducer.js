@@ -8,6 +8,7 @@ function focusReducer(state = [], action) {
         name: action.payload.name,
         level: action.payload.level,
         experience: action.payload.experience,
+        iterations: action.payload.iterations,
         goal: action.payload.goal,
       }
     default:
