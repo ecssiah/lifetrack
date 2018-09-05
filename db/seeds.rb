@@ -15,7 +15,7 @@ Setting.create(
 
 Focus.create(
   name: "LifeTrack Project",
-  level: 3, experience: 78.2,
+  level: 3, experience: 98.2,
   iterations: 0, goal: 10
 )
 

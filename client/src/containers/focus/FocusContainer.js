@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { updateTime } from '../../actions/focus-actions'
+import { updateExperience, updateIterations } from '../../actions/focus-actions'
 import Time from '../../components/focus/Time'
 import StartButton from '../../components/focus/StartButton'
 import Goal from '../../components/focus/Goal'
@@ -36,8 +37,11 @@ class FocusContainer extends Component {
   handleTimerUpdate = () => {
     if (this.props.focus.time > 0) {
       this.props.updateTime()
+      this.props.updateExperience()
     } else {
       clearInterval(this.state.timer)
+      this.props.updateIterations()
+
       this.setState({ 
         ...this.state, 
         timerRunning: false,
@@ -67,11 +71,12 @@ class FocusContainer extends Component {
 
 const mapStateToProps = state => ({
   focus: state.focus,
-  settings: state.settings,
 })
 
 const mapDispatchToProps = dispatch => ({
-  updateTime: () => dispatch(updateTime())
+  updateTime: () => dispatch(updateTime()),
+  updateExperience: () => dispatch(updateExperience()),
+  updateIterations: () => dispatch(updateIterations()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FocusContainer)

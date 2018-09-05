@@ -4,6 +4,7 @@ export const DELETING_FOCUS = 'selection:deleting_focus'
 export const DELETED_FOCUS = 'selection:deleted_focus'
 export const ADDING_FOCUS = 'selection:adding_focus'
 export const ADDED_FOCUS = 'selection:added_focus'
+export const UPDATE_SELECTION = 'selection:update_selection'
 
 export function getFocuses() {
   return dispatch => {
@@ -58,5 +59,12 @@ export function deleteFocus(id) {
         type: DELETED_FOCUS,
         payload: id
       }))
+  }
+}
+
+export function updateSelection(focus) {
+  return {
+    type: UPDATE_SELECTION,
+    payload: focus,
   }
 }
