@@ -14,7 +14,7 @@ class SettingEntry extends Component {
   }
 
   render() {
-    let options = [] 
+    const options = [] 
 
     for (let i = 1; i <= 20; ++i)
       options.push(

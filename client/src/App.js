@@ -30,6 +30,7 @@ class App extends Component {
 
     if (path.includes('focuses')) {
       const curFocusId = parseInt(path.split('/')[2], 10)
+
       const curFocus = this.props.selection.find(focus => {
         return focus.id === curFocusId
       })
@@ -37,6 +38,12 @@ class App extends Component {
       const workPeriodSetting = this.props.settings.find(setting => {
         return setting.name === "Work Period"
       }) 
+
+      const goalSetting = this.props.settings.find(setting => {
+        return setting.name === "Goal"
+      }) 
+
+      curFocus.goal = goalSetting.value
 
       this.props.updateFocus(curFocus)
       this.props.setTime(workPeriodSetting.value)
@@ -57,6 +64,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
+  focus: state.focus,
   selection: state.selection,
   settings: state.settings,
 })

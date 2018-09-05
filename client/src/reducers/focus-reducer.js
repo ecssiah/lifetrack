@@ -10,6 +10,7 @@ function focusReducer(state = [], action) {
     case UPDATE_FOCUS:
       return {
         ...state,
+        id: action.payload.id,
         name: action.payload.name,
         level: action.payload.level,
         experience: action.payload.experience,

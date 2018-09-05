@@ -8,6 +8,11 @@ Setting.create(
   value: "2"
 )
 
+Setting.create(
+  name: "Goal",
+  value: "10"
+)
+
 Focus.create(
   name: "LifeTrack Project",
   level: 3, experience: 78.2,
