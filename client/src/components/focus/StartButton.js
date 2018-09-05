@@ -3,7 +3,9 @@ import { Button } from 'react-bootstrap'
 
 const StartButton = props => (
   <div className='text-center'>
-    <Button className='btn-lg'>Start</Button>
+    <Button onClick={props.handleStartClick} className='btn-lg'>
+      {props.text}
+    </Button>
   </div>
 )
 

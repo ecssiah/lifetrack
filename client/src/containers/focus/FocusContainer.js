@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
+import { updateTime } from '../../actions/focus-actions'
 import Time from '../../components/focus/Time'
 import StartButton from '../../components/focus/StartButton'
 import Goal from '../../components/focus/Goal'
@@ -7,11 +8,52 @@ import Level from '../../components/focus/Level'
 import Experience from '../../components/focus/Experience'
 
 class FocusContainer extends Component {
+
+  state = {
+    timerRunning: false,
+    timer: null,
+    startButtonText: 'Start',
+  }
+
+  handleStartClick = () => {
+    if (this.state.timerRunning) {
+      clearInterval(this.state.timer)
+      this.setState({ 
+        ...this.state, 
+        timerRunning: false,
+        startButtonText: 'Start',
+      })
+    } else {
+      const timer = setInterval(this.handleTimerUpdate, 1000)
+      this.setState({ 
+        timer, 
+        timerRunning: true,
+        startButtonText: 'Pause',
+      })
+    }
+  }
+
+  handleTimerUpdate = () => {
+    if (this.props.focus.time > 0) {
+      this.props.updateTime()
+    } else {
+      clearInterval(this.state.timer)
+      this.setState({ 
+        ...this.state, 
+        timerRunning: false,
+        startButtonText: 'Start'
+      })
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
         <Time time={this.props.focus.time} />
-        <StartButton />
+        <StartButton 
+          text={this.state.startButtonText} 
+          handleStartClick={this.handleStartClick} 
+        />
         <Goal 
           iterations={this.props.focus.iterations} 
           goal={this.props.focus.goal} 
@@ -28,5 +70,9 @@ const mapStateToProps = state => ({
   settings: state.settings,
 })
 
-export default connect(mapStateToProps)(FocusContainer)
+const mapDispatchToProps = dispatch => ({
+  updateTime: () => dispatch(updateTime())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FocusContainer)
 
