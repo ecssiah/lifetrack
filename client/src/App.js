@@ -28,7 +28,9 @@ class App extends Component {
 
     this.props.changeLocation(path)
 
-    if (path.includes('focuses')) {
+    if (path === '/') {
+      this.props.getFocuses()
+    } else if (path.includes('focuses')) {
       const curFocusId = parseInt(path.split('/')[2], 10)
 
       const curFocus = this.props.selection.find(focus => {

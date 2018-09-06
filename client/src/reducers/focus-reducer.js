@@ -1,4 +1,5 @@
-import { SET_TIME, UPDATE_TIME, UPDATE_FOCUS } from '../actions/focus-actions'
+import { SET_TIME, UPDATE_TIME } from '../actions/focus-actions'
+import { UPDATE_FOCUS } from '../actions/focus-actions'
 import { UPDATE_EXPERIENCE, UPDATE_ITERATIONS } from '../actions/focus-actions'
 
 function focusReducer(state = [], action) {

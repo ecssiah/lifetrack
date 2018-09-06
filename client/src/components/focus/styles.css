@@ -1,5 +1,11 @@
-.time {
-  font-size: 7.6em;
+.active-time {
+  font-size: 7.8em;
+  color: #000000;
+}
+
+.break-time {
+  font-size: 7.8em;
+  color: #42bff4;
 }
 
 .goal {

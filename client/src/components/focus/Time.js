@@ -10,8 +10,10 @@ const Time = props => {
 
   const displayTime = `${displayMinutes}:${displaySeconds}` 
 
+  const colorClass = props.active ? 'active-time' : 'break-time'
+
   return (
-    <p className='time text-center'>
+    <p className={'text-center ' + colorClass}>
       {displayTime}
     </p>
   )
