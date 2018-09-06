@@ -26,18 +26,30 @@ class FocusContainer extends Component {
     if (this.state.timerRunning) {
       clearInterval(this.state.timer)
 
-      this.setState({ 
-        ...this.state, 
-        timerRunning: false,
-        startButtonText: 'Start',
-      })
+      if (!this.state.active) {
+        this.props.setTime(this.props.workPeriod.value)
+
+        this.setState({
+          ...this.state,
+          active: true,
+          saveTimer: 20,
+          timerRunning: false,
+          startButtonText: 'Start',
+        })
+      } else {
+        this.setState({ 
+          ...this.state, 
+          timerRunning: false,
+          startButtonText: 'Start',
+        })
+      }
     } else {
       const timer = setInterval(this.handleTimerUpdate, 1000)
 
       this.setState({ 
         timer, 
         timerRunning: true,
-        startButtonText: 'Pause',
+        startButtonText: this.state.active ? 'Pause' : 'Skip',
       })
     }
   }
