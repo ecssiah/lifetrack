@@ -45,10 +45,8 @@ class FocusContainer extends Component {
         })
       }
     } else {
-      const timer = setInterval(this.handleTimerUpdate, 1000)
-
       this.setState({ 
-        timer, 
+        timer: setInterval(this.handleTimerUpdate, 1000), 
         timerRunning: true,
         startButtonText: this.state.active ? 'Pause' : 'Skip',
       })
@@ -56,6 +54,11 @@ class FocusContainer extends Component {
   }
 
   handleTimerUpdate = () => {
+    this.updateSaveTimer()
+    this.updateFocusTimer()
+  }
+
+  updateSaveTimer() {
     if (this.state.active && this.state.saveTimer <= 1) {
       this.props.saveFocus(this.props.focus)
 
@@ -69,7 +72,9 @@ class FocusContainer extends Component {
         saveTimer: this.state.saveTimer - 1,
       })
     }
+  }
 
+  updateFocusTimer() {
     if (this.props.focus.time >= 0.01666) {
       this.props.updateTime()
 
