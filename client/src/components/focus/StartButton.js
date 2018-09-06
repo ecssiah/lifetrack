@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 
 const StartButton = props => (
   <div className='text-center'>
-    <Button onClick={props.handleStartClick} className='btn-lg'>
+    <Button onClick={props.handleStartClick} bsSize='large' >
       {props.text}
     </Button>
   </div>

@@ -27,10 +27,13 @@ class SettingEntry extends Component {
       <Grid>
         <Row>
           <Col xs={8} md={8}>
-            <span className='settings-entry'>{this.props.setting.name}</span>
+            <span className='setting-entry'>{this.props.setting.name}</span>
           </Col>
           <Col xs={4} md={4}>
-            <DropdownButton title={this.state.value} id={this.state.value} >
+            <DropdownButton 
+              title={this.state.value} 
+              id={this.state.value} 
+            >
               { options }
             </DropdownButton>
           </Col>

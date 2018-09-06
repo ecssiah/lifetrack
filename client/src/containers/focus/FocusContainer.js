@@ -20,6 +20,7 @@ class FocusContainer extends Component {
 
   componentWillUnmount() {
     clearInterval(this.state.timer)
+    this.props.saveFocus(this.props.focus)
   }
 
   handleStartClick = () => {
@@ -55,7 +56,7 @@ class FocusContainer extends Component {
   }
 
   handleTimerUpdate = () => {
-    if (this.state.active && this.state.saveTimer === 0) {
+    if (this.state.active && this.state.saveTimer <= 1) {
       this.props.saveFocus(this.props.focus)
 
       this.setState({

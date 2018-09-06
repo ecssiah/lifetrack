@@ -1,3 +1,7 @@
-.settings-entry {
+.setting-entry {
   font-size: 1.8em;
+}
+
+.setting-dropdown {
+  width: 80px;
 }
