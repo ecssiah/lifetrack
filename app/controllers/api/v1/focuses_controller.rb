@@ -42,7 +42,6 @@ class FocusesController < ApplicationController
   private
 
   def focus_params
-    puts "PARAMS: " + params.inspect
     params.require(:focus).permit(
       :name, :level, :experience, :iterations, :goal
     )

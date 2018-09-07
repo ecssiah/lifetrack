@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
-import { Button, Modal } from 'react-bootstrap'
 import SelectionList from '../../components/selection/SelectionList'
+import SelectionDeleteDialog 
+  from '../../components/selection/SelectionDeleteDialog'
 import { connect } from 'react-redux'
 import { deleteFocus } from '../../actions/selection-actions'
 
@@ -32,6 +33,17 @@ class SelectionContainer extends Component {
     })
   }
 
+  handleSelectionDeleteDialog() {
+    if (this.state.showDeleteConfirmation) {
+      return (
+        <SelectionDeleteDialog
+          handleDeleteConfirm={this.handleDeleteConfirm}
+          handleDeleteCancel={this.handleDeleteCancel}
+        />
+      )
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -39,26 +51,9 @@ class SelectionContainer extends Component {
           focuses={this.props.focuses} 
           handleDeleteClick={this.handleDeleteClick}
         />
-        {
-          this.state.showDeleteConfirmation &&
-          <div className='static-modal'>
-            <Modal.Dialog>
-              <Modal.Body>
-                <h4>Are you sure you want to delete this focus?</h4>
-              </Modal.Body>
+        
+        { this.handleSelectionDeleteDialog() }
 
-              <Modal.Footer>
-                <Button onClick={this.handleDeleteCancel} >Cancel</Button>
-                <Button 
-                  onClick={this.handleDeleteConfirm} 
-                  bsStyle='primary'
-                >
-                  Confirm
-                </Button>
-              </Modal.Footer>
-            </Modal.Dialog>
-          </div>
-        }
       </React.Fragment>
     )
   }

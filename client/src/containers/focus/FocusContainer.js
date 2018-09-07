@@ -7,6 +7,7 @@ import StartButton from '../../components/focus/StartButton'
 import Goal from '../../components/focus/Goal'
 import Level from '../../components/focus/Level'
 import Experience from '../../components/focus/Experience'
+import { SECOND } from '../../reducers/focus-reducer' 
 
 class FocusContainer extends Component {
 
@@ -75,7 +76,7 @@ class FocusContainer extends Component {
   }
 
   updateFocusTimer() {
-    if (this.props.focus.time >= 0.01666) {
+    if (this.props.focus.time >= SECOND) {
       this.props.updateTime()
 
       if (this.state.active)

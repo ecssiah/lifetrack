@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
+import { connect } from 'react-redux'
 import { updateSetting } from '../../actions/settings-actions'
 import SettingsList from '../../components/settings/SettingsList'
-import { connect } from 'react-redux'
 
 class SettingsContainer extends Component {
 

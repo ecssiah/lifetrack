@@ -2,6 +2,7 @@ import React from 'react';
 import SettingsEntry from './SettingsEntry'
 
 const SettingsList = props => {
+
   const settingsMap = props.settings.map(setting => {
     return (
       <SettingsEntry 

@@ -4,6 +4,7 @@ import { Image } from 'react-bootstrap'
 import './SettingsButton.css'
 
 class SettingsButton extends Component {
+
   state = {
     isHovering: false
   }

@@ -4,8 +4,20 @@ import { Grid, Row, Col, ProgressBar } from 'react-bootstrap'
 import './SelectionEntry.css'
 
 class SelectionEntry extends Component { 
+
   state = {
     isHovering: false
+  }
+
+  handleDeleteButtons() {
+    if (this.state.isHovering) {
+      return (
+        <input 
+          type='image' src='delete-button.svg' alt='delete-button' 
+          onClick={() => this.props.handleDeleteClick(this.props.focus.id)}
+        />
+      )
+    }
   }
 
   render() {
@@ -28,19 +40,13 @@ class SelectionEntry extends Component {
               <ProgressBar now={this.props.focus.experience} />
             </Col>
           </NavLink>
+
           <Col xs={1} md={1}>
             <div className='selection-delete-container'>
-              {
-                this.state.isHovering &&
-                <input 
-                  type='image' src='delete-button.svg' alt='delete-button' 
-                  onClick={
-                    () => this.props.handleDeleteClick(this.props.focus.id)
-                  }
-                />
-              }
+              { this.handleDeleteButtons() }
             </div>
           </Col>
+
         </Row>
       </Grid>
     )

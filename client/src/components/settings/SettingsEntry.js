@@ -4,13 +4,14 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import './SettingsEntry.css'
 
 class SettingsEntry extends Component {
+
   state = {
     value: this.props.setting.value
   }
 
-  handleSelect = selectedValue => {
-    this.setState({ value: selectedValue })
-    this.props.updateSetting(this.props.setting, selectedValue)
+  handleSelect = value => {
+    this.setState({ value: value })
+    this.props.updateSetting(this.props.setting, value)
   }
 
   render() {
