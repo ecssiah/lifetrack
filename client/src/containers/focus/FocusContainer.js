@@ -109,8 +109,8 @@ class FocusContainer extends Component {
           handleStartClick={this.handleStartClick} 
         />
         <Goal 
-          iterations={this.props.focus.iterations} 
           goal={this.props.focus.goal} 
+          iterations={this.props.focus.iterations} 
         />
         <Level level={this.props.focus.level} />
         <Experience experience={this.props.focus.experience} />

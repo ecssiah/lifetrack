@@ -13,6 +13,7 @@ LifeTrack is an application for tracking progress towards lifetime goals.
 * When a user focus is not active a default "Downtime" focus is activated
 * Time is calculated even when the app is not open
 
+### Calculation of Mastery Level
 Level 6000 = 10,000 hours of work
 
 36,000,000 seconds in 10,000 hours

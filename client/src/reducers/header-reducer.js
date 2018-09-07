@@ -4,8 +4,7 @@ function headerReducer(state = [], action) {
   switch (action.type) {
     case CHANGE_LOCATION:
       return {
-        current_page: action.payload,
-        previous_page: state.current_page,
+        route: action.payload,
       }
     default:
       return state
