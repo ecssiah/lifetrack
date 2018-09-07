@@ -50,20 +50,20 @@ class FocusContainer extends Component {
       }
     } else {
       this.setState({ 
-        timer: setInterval(this.handleTimerUpdate, 1000), 
         timerRunning: true,
+        timer: setInterval(this.handleTimerUpdate, 1000), 
         startButtonText: this.state.active ? 'Pause' : 'Skip',
       })
     }
   }
 
+  handleGoalClick = () => {
+    this.props.resetIterations()
+  }
+
   handleTimerUpdate = () => {
     this.updateSaveTimer()
     this.updateFocusTimer()
-  }
-
-  handleGoalClick = () => {
-    this.props.resetIterations()
   }
 
   updateSaveTimer() {

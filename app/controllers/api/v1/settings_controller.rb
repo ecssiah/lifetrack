@@ -4,6 +4,7 @@ class SettingsController < ApplicationController
 
   def index
     @settings = Setting.all.order(:id)
+
     render json: @settings
   end
 
