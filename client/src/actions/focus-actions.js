@@ -5,6 +5,7 @@ export const SET_TIME = 'focus:set_time'
 export const UPDATE_TIME = 'focus:update_time'
 export const UPDATE_EXPERIENCE = 'focus:update_experience'
 export const UPDATE_ITERATIONS = 'focus:update_iterations'
+export const RESET_ITERATIONS = 'focus:reset_iterations'
 
 export function setTime(time) {
   return {
@@ -28,6 +29,12 @@ export function updateExperience() {
 export function updateIterations() {
   return {
     type: UPDATE_ITERATIONS,
+  }
+}
+
+export function resetIterations() {
+  return {
+    type: RESET_ITERATIONS,
   }
 }
 

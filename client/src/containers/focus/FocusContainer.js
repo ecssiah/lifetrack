@@ -1,7 +1,10 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
-import { setTime, updateTime, saveFocus } from '../../actions/focus-actions'
-import { updateExperience, updateIterations } from '../../actions/focus-actions'
+import { 
+  setTime, updateTime, 
+  saveFocus, updateExperience, updateIterations, resetIterations 
+} 
+  from '../../actions/focus-actions'
 import Time from '../../components/focus/Time'
 import StartButton from '../../components/focus/StartButton'
 import Goal from '../../components/focus/Goal'
@@ -59,6 +62,10 @@ class FocusContainer extends Component {
     this.updateFocusTimer()
   }
 
+  handleGoalClick = () => {
+    this.props.resetIterations()
+  }
+
   updateSaveTimer() {
     if (this.state.active && this.state.saveTimer <= 1) {
       this.props.saveFocus(this.props.focus)
@@ -111,6 +118,7 @@ class FocusContainer extends Component {
         <Goal 
           goal={this.props.focus.goal} 
           iterations={this.props.focus.iterations} 
+          handleGoalClick={this.handleGoalClick}
         />
         <Level level={this.props.focus.level} />
         <Experience experience={this.props.focus.experience} />
@@ -131,6 +139,7 @@ const mapDispatchToProps = dispatch => ({
   updateTime: () => dispatch(updateTime()),
   updateExperience: () => dispatch(updateExperience()),
   updateIterations: () => dispatch(updateIterations()),
+  resetIterations: () => dispatch(resetIterations()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FocusContainer)
