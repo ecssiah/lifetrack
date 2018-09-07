@@ -1,11 +1,10 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
-import { Button, Modal } from 'react-bootstrap'
-import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 import HeaderTitle from '../../components/header/HeaderTitle'
 import AddButton from '../../components/header/AddButton'
 import HomeButton from '../../components/header/HomeButton'
 import SettingsButton from '../../components/header/SettingsButton'
+import AddFocusDialog from '../../components/header/AddFocusDialog'
 import { addFocus } from '../../actions/selection-actions'
 import { Grid, Row, Col } from 'react-bootstrap'
 import './HeaderContainer.css'
@@ -47,6 +46,19 @@ class HeaderContainer extends Component {
     })
   }
 
+  handleAddFocusDialog() {
+    if (this.state.showAddDialog) {
+      return (
+        <AddFocusDialog
+          name={this.state.focusName}
+          handleNameChange={this.handleNameChange}
+          handleAddConfirm={this.handleAddConfirm}
+          handleAddCancel={this.handleAddCancel}
+        />
+      )
+    }
+  }
+
   render() {
     let leftButton, rightButton, title
 
@@ -77,39 +89,9 @@ class HeaderContainer extends Component {
             </Col>
           </Row>
         </Grid>
-        {
-          this.state.showAddDialog &&
-          <div className='static-modal'>
-            <Modal.Dialog>
-              <Modal.Header>
-                <Modal.Title>Create New Focus</Modal.Title>
-              </Modal.Header>
 
-              <Modal.Body>
-                <form>
-                  <FormGroup>
-                    <ControlLabel>Name</ControlLabel>
-                    <FormControl
-                      type='text'
-                      value={this.state.focusName}
-                      onChange={this.handleNameChange}
-                    />
-                  </FormGroup>
-                </form>
-              </Modal.Body>
+        { this.handleAddFocusDialog() }
 
-              <Modal.Footer>
-                <Button onClick={this.handleAddCancel} >Cancel</Button>
-                <Button 
-                  onClick={this.handleAddConfirm} 
-                  bsStyle='primary'
-                >
-                  Confirm
-                </Button>
-              </Modal.Footer>
-            </Modal.Dialog>
-          </div>
-        }
       </div>
     )
   }
