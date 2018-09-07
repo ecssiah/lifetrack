@@ -8,7 +8,7 @@ import HomeButton from '../../components/header/HomeButton'
 import SettingsButton from '../../components/header/SettingsButton'
 import { addFocus } from '../../actions/selection-actions'
 import { Grid, Row, Col } from 'react-bootstrap'
-import './styles.css'
+import './HeaderContainer.css'
 
 class HeaderContainer extends Component {
 
@@ -65,15 +65,15 @@ class HeaderContainer extends Component {
     }
 
     return (
-      <div className="header">
+      <div className="header-container">
         <Grid>
           <Row>
             <Col xs={1} md={1}>
-              <div className='button-container'>{leftButton}</div>
+              <div className='header-button-container'>{leftButton}</div>
             </Col>
             <Col xs={10} md={10}><HeaderTitle name={title} /></Col>
             <Col xs={1} md={1}>
-              <div className='button-container'>{rightButton}</div>
+              <div className='header-button-container'>{rightButton}</div>
             </Col>
           </Row>
         </Grid>

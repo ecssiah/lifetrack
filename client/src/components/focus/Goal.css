@@ -1,0 +1,10 @@
+.goal-target {
+  font-size: 2em;
+  height: 32px;
+}
+
+.goal-progress {
+  height: 60px;
+  margin: 0 20% 0 20%;
+}
+

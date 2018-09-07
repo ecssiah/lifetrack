@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { DropdownButton, MenuItem } from 'react-bootstrap'
 import { Grid, Row, Col } from 'react-bootstrap'
-import './styles.css'
+import './SettingsEntry.css'
 
-class SettingEntry extends Component {
+class SettingsEntry extends Component {
   state = {
     value: this.props.setting.value
   }
@@ -27,7 +27,7 @@ class SettingEntry extends Component {
       <Grid>
         <Row>
           <Col xs={8} md={8}>
-            <span className='setting-entry'>{this.props.setting.name}</span>
+            <span className='settings-entry'>{this.props.setting.name}</span>
           </Col>
           <Col xs={4} md={4}>
             <DropdownButton 
@@ -43,4 +43,4 @@ class SettingEntry extends Component {
   }
 }
 
-export default SettingEntry
+export default SettingsEntry

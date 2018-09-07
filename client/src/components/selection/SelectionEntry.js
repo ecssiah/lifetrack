@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { Grid, Row, Col, ProgressBar } from 'react-bootstrap'
-import './styles.css'
+import './SelectionEntry.css'
 
-class FocusEntry extends Component { 
+class SelectionEntry extends Component { 
   state = {
     isHovering: false
   }
@@ -17,10 +17,10 @@ class FocusEntry extends Component {
         > 
           <NavLink to={`/focuses/${this.props.focus.id}`}>
             <Col xs={6} md={6}>
-              <span className='focus-entry'>{this.props.focus.name}</span>
+              <span className='selection-entry'>{this.props.focus.name}</span>
             </Col>
             <Col xs={2} md={2}>
-              <span className='focus-entry'>
+              <span className='selection-entry'>
                 {`Lvl: ${this.props.focus.level}`}
               </span>
             </Col>
@@ -29,12 +29,14 @@ class FocusEntry extends Component {
             </Col>
           </NavLink>
           <Col xs={1} md={1}>
-            <div className='delete'>
+            <div className='selection-delete-container'>
               {
                 this.state.isHovering &&
                 <input 
                   type='image' src='delete-button.svg' alt='delete-button' 
-                  onClick={() => this.props.handleDeleteClick(this.props.focus.id)}
+                  onClick={
+                    () => this.props.handleDeleteClick(this.props.focus.id)
+                  }
                 />
               }
             </div>
@@ -45,4 +47,4 @@ class FocusEntry extends Component {
   }
 }
 
-export default FocusEntry
+export default SelectionEntry

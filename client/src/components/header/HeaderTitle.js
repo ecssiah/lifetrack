@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import './HeaderTitle.css'
 
 const HeaderTitle = props => {
   return (
-    <h1 className="title text-center">{props.name}</h1>
+    <h1 className="text-center header-title">{props.name}</h1>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './Time.css'
 
 const Time = props => {
   const minutes = Math.floor(props.time).toFixed(0)
@@ -7,13 +7,12 @@ const Time = props => {
 
   const displayMinutes = minutes < 10 ? '0' + minutes : minutes
   const displaySeconds = seconds < 10 ? '0' + seconds : seconds
-
   const displayTime = `${displayMinutes}:${displaySeconds}` 
 
-  const colorClass = props.active ? 'active-time' : 'break-time'
+  const colorClass = props.active ? 'active' : 'break'
 
   return (
-    <p className={'text-center ' + colorClass}>
+    <p className={'text-center time-' + colorClass}>
       {displayTime}
     </p>
   )

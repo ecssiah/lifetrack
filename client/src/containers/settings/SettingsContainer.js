@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { updateSetting } from '../../actions/settings-actions'
-import SettingList from '../../components/settings/SettingList'
+import SettingsList from '../../components/settings/SettingsList'
 import { connect } from 'react-redux'
 
 class SettingsContainer extends Component {
@@ -8,7 +8,7 @@ class SettingsContainer extends Component {
   render() {
     return (
       <div>
-        <SettingList 
+        <SettingsList 
           settings={this.props.settings} 
           updateSetting={this.props.updateSetting} 
         />

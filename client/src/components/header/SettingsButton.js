@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Image } from 'react-bootstrap'
+import './SettingsButton.css'
 
 class SettingsButton extends Component {
   state = {
@@ -20,7 +21,7 @@ class SettingsButton extends Component {
         onClick={this.handleOnClick} 
         onMouseEnter={() => this.setState({isHovering: true})}
         onMouseLeave={() => this.setState({isHovering: false})}
-        className='align-icon' src={imageSrc} 
+        className='settings-button' src={imageSrc} 
       />
     )
   }

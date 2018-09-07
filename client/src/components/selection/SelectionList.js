@@ -1,10 +1,10 @@
 import React from 'react';
-import FocusEntry from './FocusEntry'
+import SelectionEntry from './SelectionEntry'
 
-const FocusList = props => {
+const SelectionList = props => {
   const focusMap = props.focuses.map(focus => {
     return (
-      <FocusEntry 
+      <SelectionEntry 
         key={focus.id} focus={focus} 
         handleDeleteClick={props.handleDeleteClick} 
       />
@@ -18,4 +18,4 @@ const FocusList = props => {
   )
 }
 
-export default FocusList
+export default SelectionList

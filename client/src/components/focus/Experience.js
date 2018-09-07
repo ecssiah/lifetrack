@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProgressBar } from 'react-bootstrap'
-import './styles.css'
+import './Experience.css'
 
 const Experience = props => (
   <ProgressBar 

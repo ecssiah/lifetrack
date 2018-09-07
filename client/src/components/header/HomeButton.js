@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Image } from 'react-bootstrap'
+import './HomeButton.css'
 
 class HomeButton extends Component {
   state = {
@@ -20,7 +21,7 @@ class HomeButton extends Component {
         onClick={this.handleClick} 
         onMouseEnter={() => this.setState({isHovering: true})}
         onMouseLeave={() => this.setState({isHovering: false})}
-        className='align-icon' src={imageSrc} 
+        className='home-button' src={imageSrc} 
       />
     )
   }

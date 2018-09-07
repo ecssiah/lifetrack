@@ -9,10 +9,7 @@ import registerServiceWorker from './registerServiceWorker'
 import App from './App'
 
 const initialState = { 
-  header: {
-    current_page: '/',
-    previous_page: '/',
-  },
+  header: { current_page: '/' },
   selection: [],
   focus: {},
   settings: [], 

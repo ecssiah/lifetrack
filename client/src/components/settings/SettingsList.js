@@ -1,10 +1,10 @@
 import React from 'react';
-import SettingEntry from './SettingEntry'
+import SettingsEntry from './SettingsEntry'
 
-const SettingList = props => {
+const SettingsList = props => {
   const settingsMap = props.settings.map(setting => {
     return (
-      <SettingEntry 
+      <SettingsEntry 
         key={setting.id} setting={setting} 
         updateSetting={props.updateSetting} 
       />
@@ -18,4 +18,4 @@ const SettingList = props => {
   )
 }
 
-export default SettingList
+export default SettingsList

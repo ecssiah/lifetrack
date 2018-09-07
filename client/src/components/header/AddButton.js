@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Image } from 'react-bootstrap'
+import './AddButton.css'
 
 class AddButton extends Component {
   state = {
@@ -15,7 +16,7 @@ class AddButton extends Component {
         onClick={this.props.handleAddClick} 
         onMouseEnter={() => this.setState({isHovering: true})}
         onMouseLeave={() => this.setState({isHovering: false})}
-        className='align-icon' src={imageSrc} 
+        className='add-button' src={imageSrc} 
       />
     )
   }

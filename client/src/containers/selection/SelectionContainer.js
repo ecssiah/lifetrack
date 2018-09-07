@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { Button, Modal } from 'react-bootstrap'
-import FocusList from '../../components/selection/FocusList'
+import SelectionList from '../../components/selection/SelectionList'
 import { connect } from 'react-redux'
 import { deleteFocus } from '../../actions/selection-actions'
 
@@ -35,7 +35,7 @@ class SelectionContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        <FocusList 
+        <SelectionList 
           focuses={this.props.focuses} 
           handleDeleteClick={this.handleDeleteClick}
         />
