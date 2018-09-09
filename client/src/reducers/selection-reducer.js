@@ -1,31 +1,30 @@
-import { LOADED_FOCUSES } from '../actions/selection-actions'
-import { UPDATE_TIMES, DELETED_FOCUS, ADDED_FOCUS } 
-  from '../actions/selection-actions'
-import { UPDATE_SELECTION } from '../actions/selection-actions'
+import { 
+  UPDATE_SELECTION, LOADED_FOCUSES, DELETED_FOCUS, ADDED_FOCUS, UPDATE_TIMES
+} from '../actions/selection-actions'
 
 function selectionReducer(state = [], action) {
-  let output
+  let newState
 
   switch (action.type) {
     case UPDATE_SELECTION:
-      output = state.filter(focus => focus.id !== action.payload.id)
-      output.push(action.payload)
-      return output
+      newState = state.filter(focus => focus.id !== action.payload.id)
+      newState.push(action.payload)
+      return newState
     case LOADED_FOCUSES:
       return action.payload
     case ADDED_FOCUS:
-      output = state.slice()
-      output.push(action.payload)
-      return output
+      newState = state.slice()
+      newState.push(action.payload)
+      return newState
     case DELETED_FOCUS:
-      output = state.filter(focus => focus.id !== action.payload)
-      return output
+      newState = state.filter(focus => focus.id !== action.payload)
+      return newState
     case UPDATE_TIMES:
-      output = state.map(focus => ({ 
+      newState = state.map(focus => ({ 
         ...focus, 
         time: action.payload, 
       }))
-      return output
+      return newState
     default:
       return state
   }

@@ -7,20 +7,20 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import './HeaderContent.css'
 
 const HeaderContent = props => {
-  let leftButton, rightButton, title
+  let left, center, right
 
   if (props.route === '/' ) {
-    title = 'Focuses'
-    leftButton = <AddButton handleAddClick={props.handleAddClick} />
-    rightButton = <SettingsButton />
+    center = 'Focuses'
+    left = <AddButton handleAddClick={props.handleAddClick} />
+    right = <SettingsButton handleSettingsClick={props.handleSettingsClick} />
   } else if (props.route.includes('focuses')) {
-    title = props.focus.name
-    leftButton = <HomeButton />
-    rightButton = <SettingsButton />
+    center = props.focus.name
+    left = <HomeButton handleHomeClick={props.handleHomeClick} />
+    right = <SettingsButton handleSettingsClick={props.handleSettingsClick} />
   } else if (props.route === '/settings') {
-    title = 'Settings'
-    leftButton = <HomeButton />
-    rightButton = <React.Fragment />
+    center = 'Settings'
+    left = <HomeButton handleHomeClick={props.handleHomeClick} />
+    right = <React.Fragment />
   }
 
   return (
@@ -28,11 +28,11 @@ const HeaderContent = props => {
       <Grid>
         <Row>
           <Col xs={1} md={1}>
-            <div className='header-button-container'>{leftButton}</div>
+            <div className='header-button-container'>{left}</div>
           </Col>
-          <Col xs={10} md={10}><HeaderTitle name={title} /></Col>
+          <Col xs={10} md={10}><HeaderTitle name={center} /></Col>
           <Col xs={1} md={1}>
-            <div className='header-button-container'>{rightButton}</div>
+            <div className='header-button-container'>{right}</div>
           </Col>
         </Row>
       </Grid>

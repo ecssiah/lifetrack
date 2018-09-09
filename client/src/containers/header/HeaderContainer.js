@@ -1,21 +1,30 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { addFocus } from '../../actions/selection-actions'
 import HeaderContent from '../../components/header/HeaderContent'
-import AddFocusDialog from '../../components/header/AddFocusDialog'
+import NewFocusDialog from '../../components/header/NewFocusDialog'
 
 class HeaderContainer extends Component {
 
   state = {
     focusName: '',
-    showAddDialog: false,
+    showNewFocusDialog: false,
   }
 
   handleAddClick = () => {
     this.setState({
       ...this.state,
-      showAddDialog: true
+      showNewFocusDialog: true
     }) 
+  }
+
+  handleHomeClick = () => {
+    this.props.history.push('/') 
+  }
+
+  handleSettingsClick = () => {
+    this.props.history.push('/settings')
   }
 
   handleAddConfirm = () => {
@@ -23,14 +32,14 @@ class HeaderContainer extends Component {
 
     this.setState({
       focusName: '',
-      showAddDialog: false
+      showNewFocusDialog: false
     })
   }
 
   handleAddCancel = () => {
     this.setState({
       ...this.state,
-      showAddDialog: false
+      showNewFocusDialog: false
     })
   }
 
@@ -48,10 +57,12 @@ class HeaderContainer extends Component {
           route={this.props.route}
           focus={this.props.focus}
           handleAddClick={this.handleAddClick}
+          handleHomeClick={this.handleHomeClick}
+          handleSettingsClick={this.handleSettingsClick}
         />
-        <AddFocusDialog 
+        <NewFocusDialog 
           name={this.state.focusName}
-          showDialog={this.state.showAddDialog} 
+          showDialog={this.state.showNewFocusDialog} 
           handleNameChange={this.handleNameChange}
           handleAddConfirm={this.handleAddConfirm}
           handleAddCancel={this.handleAddCancel}
@@ -71,5 +82,7 @@ const mapDispatchToProps = dispatch => ({
   addFocus: (focusName, time) => dispatch(addFocus(focusName, time))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)
+)
 

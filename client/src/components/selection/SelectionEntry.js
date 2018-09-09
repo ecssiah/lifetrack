@@ -6,11 +6,11 @@ import './SelectionEntry.css'
 class SelectionEntry extends Component { 
 
   state = {
-    isHovering: false
+    hovering: false
   }
 
   handleDeleteButtons() {
-    if (this.state.isHovering) {
+    if (this.state.hovering) {
       return (
         <input 
           type='image' src='delete-button.svg' alt='delete-button' 
@@ -24,8 +24,8 @@ class SelectionEntry extends Component {
     return (
       <Grid>
         <Row 
-          onMouseEnter={() => this.setState({isHovering: true})}
-          onMouseLeave={() => this.setState({isHovering: false})}
+          onMouseEnter={() => this.setState({hovering: true})}
+          onMouseLeave={() => this.setState({hovering: false})}
         > 
           <NavLink to={`/focuses/${this.props.focus.id}`}>
             <Col xs={6} md={6}>

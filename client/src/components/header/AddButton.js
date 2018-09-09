@@ -4,18 +4,18 @@ import './AddButton.css'
 
 class AddButton extends Component {
   state = {
-    isHovering: false
+    hovering: false
   }
 
   render() {
     let imageSrc = '/add-button'
-    imageSrc += this.state.isHovering ? '-highlight.svg' : '.svg'
+    imageSrc += this.state.hovering ? '-highlight.svg' : '.svg'
 
     return (
       <Image 
         onClick={this.props.handleAddClick} 
-        onMouseEnter={() => this.setState({isHovering: true})}
-        onMouseLeave={() => this.setState({isHovering: false})}
+        onMouseEnter={() => this.setState({hovering: true})}
+        onMouseLeave={() => this.setState({hovering: false})}
         className='add-button' src={imageSrc} 
       />
     )

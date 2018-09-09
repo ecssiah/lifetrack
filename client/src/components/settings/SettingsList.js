@@ -2,15 +2,12 @@ import React from 'react';
 import SettingsEntry from './SettingsEntry'
 
 const SettingsList = props => {
-
-  const settingsMap = props.settings.map(setting => {
-    return (
-      <SettingsEntry 
-        key={setting.id} setting={setting} 
-        handleSettingUpdate={props.handleSettingUpdate} 
-      />
-    )
-  })
+  const settingsMap = props.settings.map(setting => 
+    <SettingsEntry 
+      key={setting.id} setting={setting} 
+      handleSettingUpdate={props.handleSettingUpdate} 
+    />
+  )
 
   return (
     <React.Fragment>

@@ -4,7 +4,7 @@ Setting.create(name: "Goal", value: "10")
 
 Focus.create(
   name: "Running", 
-  level: 3, experience: 98.2, 
+  level: 3, experience: 99.7, 
   time: 0, periods: 0
 )
 

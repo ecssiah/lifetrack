@@ -1,9 +1,10 @@
-import { SET_TIME, UPDATE_TIME } from '../actions/focus-actions'
-import { UPDATE_FOCUS } from '../actions/focus-actions'
-import { UPDATE_EXPERIENCE, UPDATE_PERIODS, RESET_PERIODS } 
-  from '../actions/focus-actions'
+import { 
+  SET_TIME, UPDATE_TIME, UPDATE_FOCUS,  
+  UPDATE_EXPERIENCE, UPDATE_PERIODS, RESET_PERIODS 
+} from '../actions/focus-actions'
 
 export const SECOND = 1 / 60.0
+export const EXP_PER_SECOND = 1 / 60.0
 
 function focusReducer(state = [], action) {
   switch (action.type) {
@@ -19,7 +20,7 @@ function focusReducer(state = [], action) {
       }
     case UPDATE_EXPERIENCE:
       let level = state.level
-      let experience = state.experience + SECOND
+      let experience = state.experience + EXP_PER_SECOND
 
       if (experience >= 100) {
         experience = 0

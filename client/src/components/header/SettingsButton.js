@@ -6,22 +6,18 @@ import './SettingsButton.css'
 class SettingsButton extends Component {
 
   state = {
-    isHovering: false
-  }
-
-  handleOnClick = () => {
-    this.props.history.push('/settings')
+    hovering: false
   }
 
   render() {
     let imageSrc = '/settings-button'
-    imageSrc += this.state.isHovering ? '-highlight.svg' : '.svg'
+    imageSrc += this.state.hovering ? '-highlight.svg' : '.svg'
 
     return (
       <Image 
-        onClick={this.handleOnClick} 
-        onMouseEnter={() => this.setState({isHovering: true})}
-        onMouseLeave={() => this.setState({isHovering: false})}
+        onClick={this.props.handleSettingsClick} 
+        onMouseEnter={() => this.setState({hovering: true})}
+        onMouseLeave={() => this.setState({hovering: false})}
         className='settings-button' src={imageSrc} 
       />
     )

@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { 
   setTime, updateTime, saveFocus, 
   updateExperience, updatePeriods, resetPeriods 
-} 
-  from '../../actions/focus-actions'
+} from '../../actions/focus-actions'
 import { updateSelection } from '../../actions/selection-actions'
 import Time from '../../components/focus/Time'
 import StartButton from '../../components/focus/StartButton'
@@ -24,10 +23,13 @@ class FocusContainer extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.state.timer)
+    if (!this.state.active) 
+      this.props.focus.time = this.props.workPeriod.value
 
     this.props.updateSelection(this.props.focus)
     this.props.saveFocus(this.props.focus)
+
+    clearInterval(this.state.timer)
   }
 
   handleStartClick = () => {
@@ -121,7 +123,7 @@ class FocusContainer extends Component {
           handleStartClick={this.handleStartClick} 
         />
         <Goal 
-          goal={this.props.goal ? this.props.goal.value : 10} 
+          goal={this.props.goal ? this.props.goal.value : 0} 
           periods={this.props.focus.periods} 
           handleGoalClick={this.handleGoalClick}
         />

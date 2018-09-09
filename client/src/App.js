@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setTime, updateFocus } from './actions/focus-actions'
+import { changeLocation } from './actions/header-actions'
 import { getFocuses } from './actions/selection-actions'
 import { getSettings } from './actions/settings-actions'
-import { changeLocation } from './actions/header-actions'
+import FocusContainer from './containers/focus/FocusContainer'
 import HeaderContainer from './containers/header/HeaderContainer'
 import SelectionContainer from './containers/selection/SelectionContainer'
-import FocusContainer from './containers/focus/FocusContainer'
 import SettingsContainer from './containers/settings/SettingsContainer'
 
 class App extends Component {
@@ -32,16 +32,16 @@ class App extends Component {
       this.props.getFocuses()
     } else if (path.includes('focuses')) {
       const curFocusId = parseInt(path.split('/')[2], 10)
+      const curFocus = this.props.selection.find(focus =>
+        focus.id === curFocusId
+      )
 
-      const curFocus = this.props.selection.find(focus => {
-        return focus.id === curFocusId
-      })
-
-      const workPeriodSetting = this.props.settings.find(setting => {
-        return setting.name === "Work Period"
-      }) 
-
-      if (curFocus.time === 0) { curFocus.time = workPeriodSetting.value }
+      if (curFocus.time === 0) { 
+        const workPeriod = this.props.settings.find(setting =>
+          setting.name === "Work Period"
+        ) 
+        curFocus.time = workPeriod.value 
+      }
 
       this.props.updateFocus(curFocus)
     }
@@ -74,4 +74,6 @@ const mapDispatchToProps = dispatch => ({
   changeLocation: location => dispatch(changeLocation(location)),
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(App)
+)

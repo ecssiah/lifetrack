@@ -2,7 +2,7 @@ import React from 'react'
 import { ProgressBar } from 'react-bootstrap'
 import './Goal.css'
 
-const Goal = props => (
+const Goal = props => 
   <div className='text-center'>
     <h3 className='goal-target'>Goal:</h3>
     <div onClick={props.handleGoalClick}>
@@ -12,7 +12,6 @@ const Goal = props => (
       />
     </div>
   </div>
-)
 
 export default Goal
 
