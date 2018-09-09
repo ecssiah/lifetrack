@@ -35,7 +35,7 @@ class FocusContainer extends Component {
       clearInterval(this.state.timer)
 
       if (!this.state.active) {
-        this.props.setTime(this.props.focus.time)
+        this.props.setTime(this.props.workPeriod.value)
 
         this.setState({
           ...this.state,
@@ -121,7 +121,7 @@ class FocusContainer extends Component {
           handleStartClick={this.handleStartClick} 
         />
         <Goal 
-          goal={this.props.focus.goal} 
+          goal={this.props.goal ? this.props.goal.value : 10} 
           periods={this.props.focus.periods} 
           handleGoalClick={this.handleGoalClick}
         />
@@ -137,6 +137,7 @@ const mapStateToProps = state => ({
   selection: state.selection,
   workPeriod: state.settings.find(setting => setting.name === "Work Period"),
   breakPeriod: state.settings.find(setting => setting.name === "Break Period"),
+  goal: state.settings.find(setting => setting.name === "Goal"),
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -28,7 +28,7 @@ export function addFocus(focusName, time) {
       focus: {
         name: focusName,
         level: 0, experience: 0,
-        time: time,
+        periods: 0, time: time,
       }
     }
 
