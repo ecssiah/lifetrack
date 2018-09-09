@@ -3,7 +3,7 @@ import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setTime, updateFocus } from './actions/focus-actions'
 import { changeLocation } from './actions/header-actions'
-import { getFocuses } from './actions/selection-actions'
+import { getSelection } from './actions/selection-actions'
 import { getSettings } from './actions/settings-actions'
 import FocusContainer from './containers/focus/FocusContainer'
 import HeaderContainer from './containers/header/HeaderContainer'
@@ -14,7 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.getSettings()
-    this.props.getFocuses()
+    this.props.getSelection()
   }
 
   componentDidUpdate(prevProps) {
@@ -29,7 +29,7 @@ class App extends Component {
     this.props.changeLocation(path)
 
     if (path === '/') {
-      this.props.getFocuses()
+      setTimeout(this.props.getSelection, 500) 
     } else if (path.includes('focuses')) {
       const curFocusId = parseInt(path.split('/')[2], 10)
       const curFocus = this.props.selection.find(focus =>
@@ -67,9 +67,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setTime: time => dispatch(setTime(time)),
-  getFocuses: () => dispatch(getFocuses()),
+  getSelection: () => dispatch(getSelection()),
   getSettings: () => dispatch(getSettings()),
+  setTime: time => dispatch(setTime(time)),
   updateFocus: focus => dispatch(updateFocus(focus)),
   changeLocation: location => dispatch(changeLocation(location)),
 })

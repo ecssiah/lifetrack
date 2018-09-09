@@ -1,5 +1,6 @@
 import { 
-  UPDATE_SELECTION, LOADED_FOCUSES, DELETED_FOCUS, ADDED_FOCUS, UPDATE_TIMES
+  UPDATE_SELECTION, LOADED_SELECTION, 
+  DELETED_FOCUS, ADDED_FOCUS
 } from '../actions/selection-actions'
 
 function selectionReducer(state = [], action) {
@@ -10,7 +11,7 @@ function selectionReducer(state = [], action) {
       newState = state.filter(focus => focus.id !== action.payload.id)
       newState.push(action.payload)
       return newState
-    case LOADED_FOCUSES:
+    case LOADED_SELECTION:
       return action.payload
     case ADDED_FOCUS:
       newState = state.slice()
@@ -18,12 +19,6 @@ function selectionReducer(state = [], action) {
       return newState
     case DELETED_FOCUS:
       newState = state.filter(focus => focus.id !== action.payload)
-      return newState
-    case UPDATE_TIMES:
-      newState = state.map(focus => ({ 
-        ...focus, 
-        time: action.payload, 
-      }))
       return newState
     default:
       return state

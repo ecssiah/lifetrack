@@ -8,6 +8,11 @@ export const EXP_PER_SECOND = 1 / 60.0
 
 function focusReducer(state = [], action) {
   switch (action.type) {
+    case UPDATE_FOCUS:
+      return {
+        ...state,
+        ...action.payload,
+      }
     case SET_TIME:
       return {
         ...state,
@@ -41,11 +46,6 @@ function focusReducer(state = [], action) {
       return {
         ...state,
         periods: 0
-      }
-    case UPDATE_FOCUS:
-      return {
-        ...state,
-        ...action.payload,
       }
     default:
       return state

@@ -1,22 +1,28 @@
-export const LOADING_FOCUSES = 'selection:loading_focuses'
-export const LOADED_FOCUSES = 'selection:loaded_focuses'
-export const DELETING_FOCUS = 'selection:deleting_focus'
-export const DELETED_FOCUS = 'selection:deleted_focus'
+export const LOADING_SELECTION = 'selection:loading_selection'
+export const LOADED_SELECTION = 'selection:loaded_selection'
+export const UPDATE_SELECTION = 'selection:update_selection'
 export const ADDING_FOCUS = 'selection:adding_focus'
 export const ADDED_FOCUS = 'selection:added_focus'
-export const UPDATE_SELECTION = 'selection:update_selection'
-export const UPDATE_TIMES = 'selection:update_times'
+export const DELETING_FOCUS = 'selection:deleting_focus'
+export const DELETED_FOCUS = 'selection:deleted_focus'
 
-export function getFocuses() {
+export function getSelection() {
   return dispatch => {
-    dispatch({type: LOADING_FOCUSES})
+    dispatch({type: LOADING_SELECTION})
 
     fetch('/api/v1/focuses')
       .then(resp => resp.json())
       .then(json => dispatch({
-        type: LOADED_FOCUSES,
+        type: LOADED_SELECTION,
         payload: json
       }))
+  }
+}
+
+export function updateSelection(focus) {
+  return {
+    type: UPDATE_SELECTION,
+    payload: focus,
   }
 }
 
@@ -63,16 +69,3 @@ export function deleteFocus(id) {
   }
 }
 
-export function updateSelection(focus) {
-  return {
-    type: UPDATE_SELECTION,
-    payload: focus,
-  }
-}
-
-export function updateTimes(time) {
-  return {
-    type: UPDATE_TIMES,
-    payload: time,
-  }
-}

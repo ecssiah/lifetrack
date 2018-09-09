@@ -26,7 +26,6 @@ class FocusContainer extends Component {
     if (!this.state.active) 
       this.props.focus.time = this.props.workPeriod.value
 
-    this.props.updateSelection(this.props.focus)
     this.props.saveFocus(this.props.focus)
 
     clearInterval(this.state.timer)

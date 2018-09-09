@@ -1,7 +1,6 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { saveFocus } from '../../actions/focus-actions'
-import { updateTimes } from '../../actions/selection-actions'
 import { updateSetting } from '../../actions/settings-actions'
 import SettingsList from '../../components/settings/SettingsList'
 
@@ -36,7 +35,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  updateTimes: time => dispatch(updateTimes(time)), 
   updateSetting: (setting, value) => dispatch(updateSetting(setting, value)),
   saveFocus: focus => dispatch(saveFocus(focus)),
 })
