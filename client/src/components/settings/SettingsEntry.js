@@ -11,7 +11,7 @@ class SettingsEntry extends Component {
 
   handleSelect = value => {
     this.setState({ value: value })
-    this.props.updateSetting(this.props.setting, value)
+    this.props.handleSettingUpdate(this.props.setting, value)
   }
 
   render() {

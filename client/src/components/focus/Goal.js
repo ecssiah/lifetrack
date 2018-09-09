@@ -4,7 +4,7 @@ import './Goal.css'
 
 const Goal = props => (
   <div className='text-center'>
-    <h3 className='goal-target'>Goal: {props.goal}</h3>
+    <h3 className='goal-target'>Goal:</h3>
     <div onClick={props.handleGoalClick}>
       <ProgressBar 
         className='goal-progress' 

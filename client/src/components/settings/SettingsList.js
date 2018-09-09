@@ -7,7 +7,7 @@ const SettingsList = props => {
     return (
       <SettingsEntry 
         key={setting.id} setting={setting} 
-        updateSetting={props.updateSetting} 
+        handleSettingUpdate={props.handleSettingUpdate} 
       />
     )
   })
