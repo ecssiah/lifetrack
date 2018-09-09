@@ -20,7 +20,7 @@ export function getFocuses() {
   }
 }
 
-export function addFocus(focusName) {
+export function addFocus(focusName, time) {
   return dispatch => {
     dispatch({type: ADDING_FOCUS})
 
@@ -28,7 +28,7 @@ export function addFocus(focusName) {
       focus: {
         name: focusName,
         level: 0, experience: 0,
-        iterations: 0, goal: 10
+        time: time,
       }
     }
 

@@ -19,7 +19,7 @@ class HeaderContainer extends Component {
   }
 
   handleAddConfirm = () => {
-    this.props.addFocus(this.state.focusName)
+    this.props.addFocus(this.state.focusName, this.props.workPeriod.value)
 
     this.setState({
       focusName: '',
@@ -64,11 +64,11 @@ class HeaderContainer extends Component {
 const mapStateToProps = state => ({
   focus: state.focus,
   route: state.header.route,
-  previous_page: state.header.previous_page,
+  workPeriod: state.settings.find(setting => setting.name === "Work Period"), 
 })
 
 const mapDispatchToProps = dispatch => ({
-  addFocus: focusName => dispatch(addFocus(focusName))
+  addFocus: (focusName, time) => dispatch(addFocus(focusName, time))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)
