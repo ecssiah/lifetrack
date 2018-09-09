@@ -8,7 +8,7 @@ const Goal = props => (
     <div onClick={props.handleGoalClick}>
       <ProgressBar 
         className='goal-progress' 
-        now={props.iterations / props.goal * 100} 
+        now={props.periods / props.goal * 100} 
       />
     </div>
   </div>

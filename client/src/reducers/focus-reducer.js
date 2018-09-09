@@ -1,6 +1,6 @@
 import { SET_TIME, UPDATE_TIME } from '../actions/focus-actions'
 import { UPDATE_FOCUS } from '../actions/focus-actions'
-import { UPDATE_EXPERIENCE, UPDATE_ITERATIONS, RESET_ITERATIONS } 
+import { UPDATE_EXPERIENCE, UPDATE_PERIODS, RESET_PERIODS } 
   from '../actions/focus-actions'
 
 export const SECOND = 1 / 60.0
@@ -31,15 +31,15 @@ function focusReducer(state = [], action) {
         level: level,
         experience: experience,
       }
-    case UPDATE_ITERATIONS:
+    case UPDATE_PERIODS:
       return {
         ...state,
-        iterations: state.iterations + 1
+        periods: state.periods + 1
       }
-    case RESET_ITERATIONS:
+    case RESET_PERIODS:
       return {
         ...state,
-        iterations: 0
+        periods: 0
       }
     case UPDATE_FOCUS:
       return {

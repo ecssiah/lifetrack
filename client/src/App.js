@@ -13,8 +13,8 @@ import SettingsContainer from './containers/settings/SettingsContainer'
 class App extends Component {
 
   componentDidMount() {
-    this.props.getFocuses()
     this.props.getSettings()
+    this.props.getFocuses()
   }
 
   componentDidUpdate(prevProps) {
@@ -41,14 +41,9 @@ class App extends Component {
         return setting.name === "Work Period"
       }) 
 
-      const goalSetting = this.props.settings.find(setting => {
-        return setting.name === "Goal"
-      }) 
-
-      curFocus.goal = goalSetting.value
+      if (curFocus.time === 0) { curFocus.time = workPeriodSetting.value }
 
       this.props.updateFocus(curFocus)
-      this.props.setTime(workPeriodSetting.value)
     }
   }
 

@@ -43,7 +43,7 @@ class FocusesController < ApplicationController
 
   def focus_params
     params.require(:focus).permit(
-      :name, :level, :experience, :iterations, :goal
+      :name, :level, :experience, :periods, :time
     )
   end
 

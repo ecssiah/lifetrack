@@ -1,10 +1,11 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { 
-  setTime, updateTime, 
-  saveFocus, updateExperience, updateIterations, resetIterations 
+  setTime, updateTime, saveFocus, 
+  updateExperience, updatePeriods, resetPeriods 
 } 
   from '../../actions/focus-actions'
+import { updateSelection } from '../../actions/selection-actions'
 import Time from '../../components/focus/Time'
 import StartButton from '../../components/focus/StartButton'
 import Goal from '../../components/focus/Goal'
@@ -24,6 +25,8 @@ class FocusContainer extends Component {
 
   componentWillUnmount() {
     clearInterval(this.state.timer)
+
+    this.props.updateSelection(this.props.focus)
     this.props.saveFocus(this.props.focus)
   }
 
@@ -32,7 +35,7 @@ class FocusContainer extends Component {
       clearInterval(this.state.timer)
 
       if (!this.state.active) {
-        this.props.setTime(this.props.workPeriod.value)
+        this.props.setTime(this.props.focus.time)
 
         this.setState({
           ...this.state,
@@ -42,6 +45,8 @@ class FocusContainer extends Component {
           startButtonText: 'Start',
         })
       } else {
+        this.props.saveFocus(this.props.focus)
+
         this.setState({ 
           ...this.state, 
           timerRunning: false,
@@ -58,7 +63,7 @@ class FocusContainer extends Component {
   }
 
   handleGoalClick = () => {
-    this.props.resetIterations()
+    this.props.resetPeriods()
   }
 
   handleTimerUpdate = () => {
@@ -92,7 +97,7 @@ class FocusContainer extends Component {
       clearInterval(this.state.timer)
 
       if (this.state.active) {
-        this.props.updateIterations()
+        this.props.updatePeriods()
         this.props.setTime(this.props.breakPeriod.value)
       } else {
         this.props.setTime(this.props.workPeriod.value)
@@ -117,7 +122,7 @@ class FocusContainer extends Component {
         />
         <Goal 
           goal={this.props.focus.goal} 
-          iterations={this.props.focus.iterations} 
+          periods={this.props.focus.periods} 
           handleGoalClick={this.handleGoalClick}
         />
         <Level level={this.props.focus.level} />
@@ -129,6 +134,7 @@ class FocusContainer extends Component {
 
 const mapStateToProps = state => ({
   focus: state.focus,
+  selection: state.selection,
   workPeriod: state.settings.find(setting => setting.name === "Work Period"),
   breakPeriod: state.settings.find(setting => setting.name === "Break Period"),
 })
@@ -138,8 +144,9 @@ const mapDispatchToProps = dispatch => ({
   setTime: time => dispatch(setTime(time)),
   updateTime: () => dispatch(updateTime()),
   updateExperience: () => dispatch(updateExperience()),
-  updateIterations: () => dispatch(updateIterations()),
-  resetIterations: () => dispatch(resetIterations()),
+  updatePeriods: () => dispatch(updatePeriods()),
+  resetPeriods: () => dispatch(resetPeriods()),
+  updateSelection: focus => dispatch(updateSelection(focus)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FocusContainer)
