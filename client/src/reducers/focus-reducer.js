@@ -32,7 +32,6 @@ function focusReducer(state = [], action) {
         experience: experience,
       }
     case UPDATE_PERIODS:
-      console.log(state.periods + 1)
       return {
         ...state,
         periods: state.periods + 1
