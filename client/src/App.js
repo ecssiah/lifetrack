@@ -31,20 +31,24 @@ class App extends Component {
     if (path === '/') {
       setTimeout(this.props.getSelection, 500) 
     } else if (path.includes('focuses')) {
-      const curFocusId = parseInt(path.split('/')[2], 10)
-      const curFocus = this.props.selection.find(focus =>
-        focus.id === curFocusId
-      )
-
-      if (curFocus.time === 0) { 
-        const workPeriod = this.props.settings.find(setting =>
-          setting.name === "Work Period"
-        ) 
-        curFocus.time = workPeriod.value 
-      }
-
-      this.props.updateFocus(curFocus)
+      this.handleFocusRoute(path)
     }
+  }
+
+  handleFocusRoute(path) {
+    const curFocusId = parseInt(path.split('/')[2], 10)
+    const curFocus = this.props.selection.find(focus =>
+      focus.id === curFocusId
+    )
+
+    if (curFocus.time === 0) { 
+      const workPeriod = this.props.settings.find(setting =>
+        setting.name === "Work Period"
+      ) 
+      curFocus.time = workPeriod.value 
+    }
+
+    this.props.updateFocus(curFocus)
   }
 
   render() {
