@@ -15,7 +15,7 @@ Focus.create(
 )
 
 Focus.create(
-  name: "Cardio", 
+  name: "Study Greek", 
   level: 12, experience: 0.0,
   time: 0, periods: 0
 )
