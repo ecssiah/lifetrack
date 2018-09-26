@@ -22,7 +22,6 @@
     "warning": "^4.0.2",
     "resolve-pathname": "^2.2.0"
   },
-  "devDependencies": {},
   "scripts": {
     "build": "cd client && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",
