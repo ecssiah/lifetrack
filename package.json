@@ -1,5 +1,48 @@
 {
   "name": "lifetrack",
   "version": "0.1.0",
-  "private": true
+  "description": "A lifelong goal tracking application built with React/Redux",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "invariant": "^2.2.4",
+    "js-tokens": "^4.0.0",
+    "hoist-non-react-statics": "^2.5.5",
+    "history": "^4.7.2",
+    "loose-envify": "^1.4.0",
+    "object-assign": "^4.1.1",
+    "path-to-regexp": "^1.7.0",
+    "prop-types": "^15.6.2",
+    "isarray": "^0.0.1",
+    "react-router-dom": "^4.3.1",
+    "value-equal": "^0.4.0",
+    "react-router": "^4.3.1",
+    "warning": "^4.0.2",
+    "resolve-pathname": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecssiah/lifetrack.git"
+  },
+  "keywords": [
+    "goals",
+    "pomodoro",
+    "time",
+    "management"
+  ],
+  "author": "Michael Chapman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecssiah/lifetrack/issues"
+  },
+  "homepage": "https://github.com/ecssiah/lifetrack#readme"
 }
