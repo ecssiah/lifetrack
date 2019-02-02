@@ -1,6 +1,8 @@
 # LifeTrack
 
-This application tracks longterm progress towards life goals. The user gains experience based on the time they devote to each goal. When a user gains 100 experience, they reach a new level. At level 6000, the user will have put 10,000 hours into a goal. 
+Demo: https://life-track.herokuapp.com/
+
+This is a browser application that tracks longterm progress towards life goals. The user gains experience based on the time they devote to each goal. When a user gains 100 experience, they reach a new level. At level 6000, the user will have put 10,000 hours into a goal. 
 
 The application is based on the pomodoro technique, which involves short periods of focused work on a single task with regular breaks. 
 
